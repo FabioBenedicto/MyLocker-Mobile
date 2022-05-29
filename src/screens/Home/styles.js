@@ -64,8 +64,11 @@ const styles = StyleSheet.create({
   // body
 
   body: {
-    transform: [{ translateY: (height / 100) * 12.3 }],
     flex: 5,
+  },
+
+  yourLocker: {
+    transform: [{ translateY: (height / 100) * 12.3 }],
     padding: '6%',
   },
 
