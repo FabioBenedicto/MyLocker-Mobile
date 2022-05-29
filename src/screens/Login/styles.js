@@ -1,42 +1,42 @@
-import { StyleSheet } from 'react-native'
-import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes'
+import { StyleSheet } from 'react-native';
+import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   teste: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   image: {
-    marginBottom: 80
+    marginBottom: 80,
   },
   title: {
     fontSize: 30,
     lineHeight: 35,
-    color: "#000000",
-    marginBottom: 10
+    color: '#000000',
+    marginBottom: 10,
   },
   subtitle: {
     fontSize: 20,
     lineHeight: 23,
-    color: "#666666",
-    marginBottom: 20
+    color: '#666666',
+    marginBottom: 20,
   },
   input: {
     width: 330,
     height: 70,
     borderRadius: 10,
     padding: 25,
-    backgroundColor: "#ffffff",
-    justifyContent: "flex-start",
-    alignItems: "center",
+    backgroundColor: '#ffffff',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
     marginBottom: 20,
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 2,
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   button: {
     width: '80%',
     height: 60,
-    backgroundColor: "#0085FF",
+    backgroundColor: '#0085FF',
     borderRadius: 15,
     justifyContent: 'center',
     alignItems: 'center',
@@ -67,9 +67,9 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#FFFFFF',
     fontSize: 25,
-    lineHeight: 29
-  }
+    lineHeight: 29,
+  },
 
-})
+});
 
-export default styles
+export default styles;
