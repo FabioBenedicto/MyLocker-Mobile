@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
+import { Text, View, Image } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
-import Btn from '../../components/Btn';
+import Button from '../../components/Button';
 import styles from './styles';
 import NotFoundImage from '../../assets/NotFound.png';
 import UserImage from '../../assets/User.png';
@@ -48,7 +48,7 @@ export default function Home() {
           </View>
         </View>
 
-        <Btn text="Alugar um Armário" />
+        <Button text="Alugar um Armário" />
 
       </View>
     </View>

@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import Btn from '../../components/Btn';
+import Button from '../../components/Button';
 import styles from './styles';
 import Logo from '../../assets/Logo.png';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const navigation = useNavigation();
+
+  const func = () => {
+    navigation.navigate('Verification');
+  }
 
   return (
     <View style={styles.container}>
@@ -26,7 +30,8 @@ export default function Login() {
 
       </View>
 
-      <Btn text="Continuar" where="Home" />
+
+      <Button text="Continuar" press={func} />
 
     </View>
   );

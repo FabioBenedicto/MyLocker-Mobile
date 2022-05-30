@@ -4,33 +4,35 @@ import { Text, View, StyleSheet } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import Login from './src/screens/Login';
+import Verification from './src/screens/Verification';
 import Home from './src/screens/Home';
 
 export default function App() {
   const { Navigator, Screen } = createStackNavigator();
 
   return (
-      <NavigationContainer>
+    <NavigationContainer>
 
-          <StatusBar
-            barStyle="dark-content"
-            translucent
-            // backgroundColor="black"
-          />
-          <Navigator
-            // headerMode="none"
-            initialRouteName="Login"
-            screenOptions={{
-              headerShown: false,
-              cardStyle: {
-                backgroundColor: '#fff',
-              },
-            }}
-          >
-              <Screen name="Login" component={Login} />
-              <Screen name="Home" component={Home} />
-          </Navigator>
-      </NavigationContainer>
+      <StatusBar
+        barStyle="dark-content"
+        translucent
+      // backgroundColor="black"
+      />
+      <Navigator
+        // headerMode="none"
+        initialRouteName="Login"
+        screenOptions={{
+          headerShown: false,
+          cardStyle: {
+            backgroundColor: '#fff',
+          },
+        }}
+      >
+        <Screen name="Login" component={Login} />
+        <Screen name="Verification" component={Verification} />
+        <Screen name="Home" component={Home} />
+      </Navigator>
+    </NavigationContainer>
   );
 }
 
