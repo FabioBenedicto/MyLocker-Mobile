@@ -1,4 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
+
 const { width, height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
@@ -10,8 +11,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 
+  container2: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
   image: {
-    marginTop: 120,
+    // marginTop: 120,
     marginBottom: 80,
   },
 
@@ -20,7 +27,7 @@ const styles = StyleSheet.create({
   },
 
   textContainer: {
-    alignItems: "center",
+    alignItems: 'center',
     marginBottom: 20,
   },
 
@@ -29,13 +36,13 @@ const styles = StyleSheet.create({
     fontSize: (height / 100) * 2.5,
     marginTop: (height / 100) * 0.8,
     textAlign: 'center',
-    paddingLeft: "5%",
-    paddingRight: "5%"
+    paddingLeft: '5%',
+    paddingRight: '5%',
   },
 
   inputContainer: {
     flexDirection: 'row',
-    width: "100%",
+    width: '100%',
     justifyContent: 'space-between',
     marginBottom: 20,
   },

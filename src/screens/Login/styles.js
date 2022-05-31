@@ -3,6 +3,7 @@ import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNat
 
 const styles = StyleSheet.create({
   container: {
+    padding: 20,
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-between',

@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { createRef } from 'react/cjs/react.production.min';
 import { Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Button from '../../components/Button';
@@ -10,35 +11,54 @@ export default function Verification() {
 
   const func = () => {
     navigation.navigate('Home');
-  }
+  };
 
-  const refContainer = useRef(initialValue);
+  const cont = [createRef(), createRef(), createRef(), createRef(), createRef(), createRef()];
 
-  const [c1, setC1] = useState('');
-  const [c2, setC2] = useState('');
-  const [c3, setC3] = useState('');
-  const [c4, setC4] = useState('');
-  const [c5, setC5] = useState('');
-  const [c6, setC6] = useState('');
+  const [c, setC] = useState([]);
+
+  const changeTextC = (text, num) => {
+    const auxArray = [];
+    let i = 0;
+
+    c.forEach((auxElement) => {
+      auxArray[i] = auxElement;
+      i += 1;
+    });
+
+    auxArray[num] = text;
+
+    setC(auxArray);
+
+    if (text.length == 1) {
+      if (num == 5) {
+        func.apply();
+        return;
+      }
+
+      cont[++num].current.focus();
+    }
+  };
 
   return (
     <View style={styles.container}>
-      <Image source={Logo} style={styles.image} />
+      <View style={styles.container2}>
+        <Image source={Logo} style={styles.image} />
 
-      <View style={styles.textContainer}>
-        <Text style={styles.title}>Verifique seu e-mail</Text>
-        <Text style={styles.subtitle}>Digite o código enviado para o seu e-mail</Text>
+        <View style={styles.textContainer}>
+          <Text style={styles.title}>Verifique seu e-mail</Text>
+          <Text style={styles.subtitle}>Digite o código enviado para o seu e-mail</Text>
+        </View>
+
+        <View style={styles.inputContainer}>
+          <TextInput style={styles.input} ref={cont[0]} maxLength={1} value={c[0]} onChangeText={(text) => changeTextC(text, 0)} />
+          <TextInput style={styles.input} ref={cont[1]} maxLength={1} value={c[1]} onChangeText={(text) => changeTextC(text, 1)} />
+          <TextInput style={styles.input} ref={cont[2]} maxLength={1} value={c[2]} onChangeText={(text) => changeTextC(text, 2)} />
+          <TextInput style={styles.input} ref={cont[3]} maxLength={1} value={c[3]} onChangeText={(text) => changeTextC(text, 3)} />
+          <TextInput style={styles.input} ref={cont[4]} maxLength={1} value={c[4]} onChangeText={(text) => changeTextC(text, 4)} />
+          <TextInput style={styles.input} ref={cont[5]} maxLength={1} value={c[5]} onChangeText={(text) => changeTextC(text, 5)} />
+        </View>
       </View>
-
-      <View style={styles.inputContainer}>
-        <TextInput style={styles.input} maxLength={1} value={c1} onChangeText={(text) => { setC1(text); this.input_2.focus(); }} />
-        <TextInput style={styles.input} ref={(input) => { this.input_2 = input; }} value={c2} onChangeText={(text) => { setC2(text); }} />
-        <TextInput style={styles.input} value={c3} onChangeText={(text) => { setC3(text); }} />
-        <TextInput style={styles.input} value={c4} onChangeText={(text) => { setC4(text); }} />
-        <TextInput style={styles.input} value={c5} onChangeText={(text) => { setC5(text); }} />
-        <TextInput style={styles.input} value={c6} onChangeText={(text) => { setC6(text); }} />
-      </View>
-
 
       <Button text="Continuar" press={func} />
     </View>

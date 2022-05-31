@@ -65,11 +65,13 @@ const styles = StyleSheet.create({
 
   body: {
     flex: 5,
+    padding: 20,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
 
   yourLocker: {
     transform: [{ translateY: (height / 100) * 12.3 }],
-    padding: '6%',
   },
 
   title: {

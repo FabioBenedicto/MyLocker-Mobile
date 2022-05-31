@@ -11,7 +11,7 @@ export default function Login() {
 
   const func = () => {
     navigation.navigate('Verification');
-  }
+  };
 
   return (
     <View style={styles.container}>
@@ -29,7 +29,6 @@ export default function Login() {
         </View>
 
       </View>
-
 
       <Button text="Continuar" press={func} />
 

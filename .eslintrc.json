@@ -32,6 +32,8 @@
         "import/no-extraneous-dependencies": "off",
         "func-names": ["error", "never"],
         "react/jsx-indent" : [2, 2],
-        "max-len": ["error", { "code": 1000 }]
+        "max-len": ["error", { "code": 1000 }],
+        "no-plusplus": "off",
+        "no-param-reassign": "off"
     }
 }
