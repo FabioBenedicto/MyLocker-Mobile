@@ -11,7 +11,7 @@ export default function Verification() {
 
   const func = () => {
     if (verif()) {
-      navigation.navigate('Home');
+      navigation.navigate('CreatePassword');
     } else {
       Alert.alert('>:(');
     }
@@ -73,8 +73,10 @@ export default function Verification() {
       return;
     }
 
+    num--;
+
     if (e.nativeEvent.key == 'Backspace') {
-      cont[--num].current.focus();
+      cont[num].current.focus();
     }
   };
 
@@ -96,6 +98,11 @@ export default function Verification() {
           <TextInput style={styles.input} ref={cont[4]} maxLength={1} value={c[4]} onKeyPress={(e) => handleKeyPress(e, 4)} onChangeText={(text) => changeTextC(text, 4)} />
           <TextInput style={styles.input} ref={cont[5]} maxLength={1} value={c[5]} onKeyPress={(e) => handleKeyPress(e, 5)} onChangeText={(text) => changeTextC(text, 5)} />
         </View>
+
+        <TouchableOpacity style={styles.linkContainer}>
+          <Text style={styles.linkText}>Reenviar código</Text>
+        </TouchableOpacity>
+
       </View>
 
       <Button text="Continuar" press={func} />

@@ -52,7 +52,6 @@ const styles = StyleSheet.create({
     shadowRadius: 4.84,
 
     elevation: 5,
-
   },
 
   linkContainer: {
