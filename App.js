@@ -1,12 +1,13 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import Login from './src/screens/Login';
 import Verification from './src/screens/Verification';
 import CreatePassword from './src/screens/CreatePassword';
 import Home from './src/screens/Home';
+import LoginP2 from './src/screens/LoginP2';
 
 export default function App() {
   const { Navigator, Screen } = createStackNavigator();
@@ -33,6 +34,7 @@ export default function App() {
         <Screen name="Verification" component={Verification} />
         <Screen name="CreatePassword" component={CreatePassword} />
         <Screen name="Home" component={Home} />
+        <Screen name="LoginP2" component={LoginP2} />
       </Navigator>
     </NavigationContainer>
   );

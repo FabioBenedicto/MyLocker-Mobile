@@ -41,23 +41,24 @@ const styles = StyleSheet.create({
   },
 
   inputContainer: {
-    flexDirection: 'row',
     width: '100%',
     justifyContent: 'space-between',
-    marginBottom: 20,
+    marginBottom: 10,
   },
 
   input: {
-    width: 50,
+    width: (width / 100) * 90,
     height: 70,
     borderRadius: 10,
+    padding: 25,
     backgroundColor: '#ffffff',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    paddingLeft: 15,
+    marginBottom: 15,
+
+    fontSize: (height / 100) * 2.6,
+
     shadowColor: '#000',
-    fontSize: 30,
-    color: '#666666',
     shadowOffset: {
       width: 0,
       height: 2,
@@ -66,11 +67,34 @@ const styles = StyleSheet.create({
     shadowRadius: 4.84,
 
     elevation: 5,
+  },
 
+  inputDisable: {
+    width: (width / 100) * 90,
+    height: 70,
+    borderRadius: 10,
+    padding: 25,
+    backgroundColor: '#eeeeee',
+    color: '#7d7b7b',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    marginBottom: 15,
+
+    fontSize: (height / 100) * 2.6,
+
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4.84,
+
+    elevation: 5,
   },
 
   linkContainer: {
-    marginStart: 15,
+    marginStart: 10,
     flexDirection: 'column',
     alignSelf: 'flex-start',
   },

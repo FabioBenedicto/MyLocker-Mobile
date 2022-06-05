@@ -19,11 +19,12 @@ export default function Login() {
 
   const func = () => {
     if (verif()) {
-      navigation.navigate('Verification');
+      navigation.navigate('Home');
     }
   };
 
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState('cl200126@g.unicamp.br');
+  const [pass, setPass] = useState('');
 
   return (
     <View style={styles.container}>
@@ -36,7 +37,8 @@ export default function Login() {
         </View>
 
         <View style={styles.inputContainer}>
-          <TextInput style={styles.input} value={email} placeholder="Esqueceu seu e-mail?" placeholderTextColor="#7D7B7B" onChangeText={(text) => setEmail(text)} blurOnSubmit={false} onSubmitEditing={(e) => func()} />
+          <TextInput style={styles.inputDisable} value={email} editable={false} selectTextOnFocus={false} placeholder="Esqueceu seu e-mail?" placeholderTextColor="#7D7B7B" />
+          <TextInput style={styles.input} value={pass} placeholder="Senha" placeholderTextColor="#7D7B7B" onChangeText={(text) => setPass(text)} blurOnSubmit={false} onSubmitEditing={(e) => func()} />
         </View>
 
         <TouchableOpacity style={styles.linkContainer}>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { createRef } from 'react/cjs/react.production.min';
 import { Text, View, Image, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -9,8 +9,21 @@ import Logo from '../../assets/Logo.png';
 export default function Verification() {
   const navigation = useNavigation();
 
+  const verif = () => {
+    if ((pass != '') && (conf != '')) {
+      if (pass == conf) {
+        return true;
+      }
+    }
+
+    Alert.alert('>:(');
+    return false;
+  };
+
   const func = () => {
-    navigation.navigate('Home');
+    if (verif()) {
+      navigation.navigate('LoginP2');
+    }
   };
 
   const cont = [createRef(), createRef()];
@@ -18,15 +31,14 @@ export default function Verification() {
   const [pass, setPass] = useState('');
   const [conf, setConf] = useState('');
 
-  /*   const handleKeyPress = (e, num) => {
+  const submitFunc = (num) => {
     if (num == 1) {
       func.apply();
+      return;
     }
 
-    if (e.nativeEvent.key == 'Enter') {
-      cont[num].current.focus();
-    }
-  }; */
+    cont[++num].current.focus();
+  };
 
   return (
     <View style={styles.container}>
@@ -39,8 +51,8 @@ export default function Verification() {
         </View>
 
         <View style={styles.inputContainer}>
-          <TextInput style={styles.input} value={pass} onChangeText={(text) => setPass(text)} /* onKeyPress={(e) => handleKeyPress(e, 0)} */ />
-          <TextInput style={styles.input} value={conf} onChangeText={(text) => setConf(text)} /* onKeyPress={(e) => handleKeyPress(e, 0)} */ />
+          <TextInput style={styles.input} value={pass} ref={cont[0]} placeholder="Senha" placeholderTextColor="#7D7B7B" onChangeText={(text) => setPass(text)} blurOnSubmit={false} onSubmitEditing={(e) => submitFunc(0)} />
+          <TextInput style={styles.input} value={conf} ref={cont[1]} placeholder="Confirmar Senha" placeholderTextColor="#7D7B7B" onChangeText={(text) => setConf(text)} blurOnSubmit={false} onSubmitEditing={(e) => submitFunc(1)} />
         </View>
 
         <TouchableOpacity style={styles.linkContainer}>

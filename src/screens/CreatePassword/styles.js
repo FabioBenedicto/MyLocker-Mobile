@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
 
   subtitle: {
     color: '#666666',
-    fontSize: (height / 100) * 2.5,
+    fontSize: (height / 100) * 2.6,
     marginTop: (height / 100) * 0.8,
     textAlign: 'center',
     paddingLeft: '5%',
@@ -55,6 +55,8 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     marginBottom: 15,
+
+    fontSize: (height / 100) * 2.6,
 
     shadowColor: '#000',
     shadowOffset: {
