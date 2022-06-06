@@ -4,12 +4,7 @@ const { width, height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
-    /* borderRadius: 10,
-    marginTop: 70,
-    padding: 10, */
-
     marginTop: (height / 100) * 9,
-    // marginBottom: (height / 100) * 9.5,
 
     marginBottom: (height / 100) * 6,
 
