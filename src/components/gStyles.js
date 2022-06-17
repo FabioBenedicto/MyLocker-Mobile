@@ -3,17 +3,19 @@ import { StyleSheet, Dimensions } from 'react-native';
 const { width, height } = Dimensions.get('window');
 
 const gStyles = StyleSheet.create({
+
   container: {
+    height,
     padding: 20,
     flex: 1,
     flexDirection: 'column',
-    //justifyContent: 'space-between',
-    //alignItems: 'center',
+    // justifyContent: 'space-between',
+    // alignItems: 'center',
   },
 
   container2: {
     flex: 1,
-    //justifyContent: 'center',
+    // justifyContent: 'center',
     alignItems: 'center',
   },
 
@@ -35,6 +37,7 @@ const gStyles = StyleSheet.create({
 
   bodyContainer: {
     flex: 4,
+    width: '100%',
     flexDirection: 'column',
     justifyContent: 'center',
   },
@@ -55,15 +58,15 @@ const gStyles = StyleSheet.create({
 
   inputContainer: {
     width: '100%',
-    //justifyContent: 'space-between',
-    //marginBottom: 10,
+    // justifyContent: 'space-between',
+    // marginBottom: 10,
   },
 
   input: {
     width: (width / 100) * 90,
-    height: 70,
+    height: 75,
     borderRadius: 10,
-    padding: 25,
+    padding: 23,
     backgroundColor: '#ffffff',
     justifyContent: 'flex-start',
     alignItems: 'center',
@@ -72,24 +75,42 @@ const gStyles = StyleSheet.create({
     fontSize: (height / 100) * 2.6,
 
     shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4.84,
-
     elevation: 5,
   },
 
   linkContainer: {
-    //marginStart: 10,
+    marginStart: 10,
     alignSelf: 'flex-start',
   },
 
   linkText: {
     fontSize: 20,
     color: '#0085FF',
+  },
+
+  background: {
+    flex: 1,
+    backgroundColor: 'gray',
+    opacity: 0.15,
+  },
+
+  contentContainer: {
+    height: height / 2.2,
+    width,
+
+    alignItems: 'center',
+    // justifyContent: 'center',
+
+    backgroundColor: 'white',
+
+    position: 'absolute',
+    bottom: 0,
+
+    borderTopRightRadius: 25,
+    borderTopLeftRadius: 25,
+
+    shadowColor: '#000',
+    elevation: 50,
   },
 
 });

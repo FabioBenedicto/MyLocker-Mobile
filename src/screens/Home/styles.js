@@ -5,13 +5,19 @@ const { width, height } = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'column',
+  },
+
+  container2: {
+    flex: 1,
   },
 
   // header
 
   header: {
     // transform: [{ translateY: 35 }],
-    flex: 1.1,
+    // flex: 1.1,
+    flex: 1,
     alignContent: 'flex-end',
   },
 
@@ -64,7 +70,7 @@ const styles = StyleSheet.create({
   // body
 
   body: {
-    flex: 5,
+    flex: 4,
     padding: 20,
     flexDirection: 'column',
     justifyContent: 'space-between',

@@ -12,24 +12,13 @@ const styles = StyleSheet.create({
   },
 
   input: {
-    width: 50,
+    width: 55,
     height: 70,
-    borderRadius: 10,
-    backgroundColor: '#ffffff',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    paddingLeft: 15,
-    shadowColor: '#000',
+
+    padding: 0,
+    paddingLeft: 19,
     fontSize: 30,
     color: '#666666',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4.84,
-
-    elevation: 5,
 
   },
 
