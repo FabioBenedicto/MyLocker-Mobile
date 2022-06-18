@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
     width: 55,
     height: 70,
 
+    marginBottom: 0,
     padding: 0,
     paddingLeft: 19,
     fontSize: 30,

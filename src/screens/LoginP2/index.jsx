@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Text, View, Image, TextInput, TouchableOpacity, Alert, ScrollView } from 'react-native';
+import React, { useState, useEffect, createRef } from 'react';
+import { Text, View, Image, TextInput, TouchableOpacity, Alert, ScrollView, BackHandler } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Button from '../../components/Button';
 import gStyles from '../../components/gStyles';
@@ -8,6 +8,25 @@ import Logo from '../../assets/Logo.png';
 
 export default function Login() {
   const navigation = useNavigation();
+  const cont = createRef();
+
+  const [email, setEmail] = useState('cl200126@g.unicamp.br');
+  const [pass, setPass] = useState('');
+
+  const func = () => {
+    if (verif()) {
+      navigation.navigate('Home');
+      scrClear();
+    }
+  };
+
+  const scrClear = () => {
+    if (pass != '') {
+      cont.current.clear();
+    }
+
+    setPass('');
+  };
 
   const verif = () => {
     if (email != '') {
@@ -18,14 +37,19 @@ export default function Login() {
     return false;
   };
 
-  const func = () => {
-    if (verif()) {
-      navigation.navigate('Home');
-    }
+  const backAction = () => {
+    navigation.navigate('Login');
+
+    scrClear();
+
+    return true;
   };
 
-  const [email, setEmail] = useState('cl200126@g.unicamp.br');
-  const [pass, setPass] = useState('');
+  useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress', backAction);
+
+    return () => BackHandler.removeEventListener('hardwareBackPress', backAction);
+  }, []);
 
   return (
     <ScrollView>
@@ -43,11 +67,11 @@ export default function Login() {
 
             <View style={gStyles.inputContainer}>
               <TextInput style={[gStyles.input, styles.inputDisable]} value={email} editable={false} selectTextOnFocus={false} placeholder="E-mail" placeholderTextColor="#7D7B7B" />
-              <TextInput style={gStyles.input} value={pass} placeholder="Senha" placeholderTextColor="#7D7B7B" onChangeText={(text) => setPass(text)} blurOnSubmit={false} onSubmitEditing={(e) => func()} />
+              <TextInput style={gStyles.input} value={pass} ref={cont} placeholder="Senha" placeholderTextColor="#7D7B7B" onChangeText={(text) => setPass(text)} blurOnSubmit={false} onSubmitEditing={(e) => func()} />
             </View>
 
-            <TouchableOpacity style={gStyles.linkContainer}>
-              <Text style={gStyles.linkText}>Esqueceu seu e-mail?</Text>
+            <TouchableOpacity style={gStyles.linkContainer} onPress={() => navigation.navigate('Verification')}>
+              <Text style={gStyles.linkText}>Esqueceu sua senha?</Text>
             </TouchableOpacity>
           </View>
 

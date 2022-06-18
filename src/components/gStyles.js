@@ -2,6 +2,8 @@ import { StyleSheet, Dimensions } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
+const textSize = [(height / 100) * 2.45, (height / 100) * 2.6, (height / 100) * 4.5];
+
 const gStyles = StyleSheet.create({
 
   container: {
@@ -32,7 +34,7 @@ const gStyles = StyleSheet.create({
   },
 
   title: {
-    fontSize: (height / 100) * 4.5,
+    fontSize: textSize[2],
   },
 
   bodyContainer: {
@@ -49,7 +51,7 @@ const gStyles = StyleSheet.create({
 
   subtitle: {
     color: '#666666',
-    fontSize: (height / 100) * 2.6,
+    fontSize: textSize[1],
     marginTop: (height / 100) * 0.8,
     textAlign: 'center',
     paddingLeft: '5%',
@@ -72,7 +74,7 @@ const gStyles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 15,
 
-    fontSize: (height / 100) * 2.6,
+    fontSize: textSize[1],
 
     shadowColor: '#000',
     elevation: 5,
@@ -84,7 +86,7 @@ const gStyles = StyleSheet.create({
   },
 
   linkText: {
-    fontSize: 20,
+    fontSize: textSize[0],
     color: '#0085FF',
   },
 
@@ -95,11 +97,12 @@ const gStyles = StyleSheet.create({
   },
 
   contentContainer: {
-    height: height / 2.2,
     width,
 
+    justifyContent: 'space-between',
+
     alignItems: 'center',
-    // justifyContent: 'center',
+    padding: 20,
 
     backgroundColor: 'white',
 
@@ -111,6 +114,18 @@ const gStyles = StyleSheet.create({
 
     shadowColor: '#000',
     elevation: 50,
+  },
+
+  modalTitle: {
+    marginTop: 20,
+  },
+
+  modalTextContainer: {
+    marginTop: 20,
+  },
+
+  modalText: {
+    color: '#000000',
   },
 
 });

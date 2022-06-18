@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { Text, View, Image } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { Text, View, Image, Alert, BackHandler } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { MaterialIcons } from '@expo/vector-icons';
 import Button from '../../components/Button';
 import styles from './styles';
@@ -7,7 +8,27 @@ import NotFoundImage from '../../assets/NotFound.png';
 import UserImage from '../../assets/User.png';
 
 export default function Home() {
+  const navigation = useNavigation();
   const [color, setColor] = useState('#D1D1D1');
+
+  const backAction = () => {
+    Alert.alert('Calma!', 'Tem certeza que deseja voltar para tela de login?', [
+      {
+        text: 'Cancelar',
+        onPress: () => null,
+      },
+
+      { text: 'Sim',
+        onPress: () => navigation.navigate('Login') },
+    ]);
+    return true;
+  };
+
+  useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress', backAction);
+
+    return () => BackHandler.removeEventListener('hardwareBackPress', backAction);
+  }, []);
 
   return (
     <View style={styles.container}>

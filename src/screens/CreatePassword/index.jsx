@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { createRef } from 'react/cjs/react.production.min';
-import { Text, View, Image, TextInput, Alert, ScrollView } from 'react-native';
+import { Text, View, Image, TextInput, Alert, ScrollView, BackHandler } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Button from '../../components/Button';
 import gStyles from '../../components/gStyles';
@@ -9,6 +9,30 @@ import Logo from '../../assets/Logo.png';
 
 export default function Verification() {
   const navigation = useNavigation();
+  const cont = [createRef(), createRef()];
+
+  const [pass, setPass] = useState('');
+  const [conf, setConf] = useState('');
+
+  const func = () => {
+    if (verif()) {
+      navigation.navigate('LoginP2');
+      scrClear();
+    }
+  };
+
+  const scrClear = () => {
+    if (pass != '') {
+      cont[0].current.clear();
+    }
+
+    if (conf != '') {
+      cont[1].current.clear();
+    }
+
+    setPass('');
+    setConf('');
+  };
 
   const verif = () => {
     if ((pass != '') && (conf != '')) {
@@ -21,17 +45,6 @@ export default function Verification() {
     return false;
   };
 
-  const func = () => {
-    if (verif()) {
-      navigation.navigate('LoginP2');
-    }
-  };
-
-  const cont = [createRef(), createRef()];
-
-  const [pass, setPass] = useState('');
-  const [conf, setConf] = useState('');
-
   const submitFunc = (num) => {
     if (num == 1) {
       func.apply();
@@ -40,6 +53,20 @@ export default function Verification() {
 
     cont[++num].current.focus();
   };
+
+  const backAction = () => {
+    navigation.navigate('Login');
+
+    scrClear();
+
+    return true;
+  };
+
+  useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress', backAction);
+
+    return () => BackHandler.removeEventListener('hardwareBackPress', backAction);
+  }, []);
 
   return (
     <ScrollView>

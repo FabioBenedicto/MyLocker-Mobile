@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createRef } from 'react/cjs/react.production.min';
-import { Text, View, Image, TextInput, TouchableOpacity, Alert, ScrollView } from 'react-native';
+import { Text, View, Image, TextInput, TouchableOpacity, Alert, ScrollView, BackHandler } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Button from '../../components/Button';
 import gStyles from '../../components/gStyles';
@@ -9,13 +9,35 @@ import Logo from '../../assets/Logo.png';
 
 export default function Verification() {
   const navigation = useNavigation();
+  const cont = [createRef(), createRef(), createRef(), createRef(), createRef(), createRef()];
+
+  const [c, setC] = useState(['', '', '', '', '', '']);
 
   const func = () => {
     if (verif()) {
       navigation.navigate('CreatePassword');
+      scrClear();
     } else {
       Alert.alert('>:(');
     }
+  };
+
+  const scrClear = () => {
+    let empty = false;
+
+    c.forEach((aux) => {
+      if (aux == '') {
+        empty = true;
+      }
+    });
+
+    if (!empty) {
+      cont.forEach((aux) => {
+        aux.current.clear();
+      });
+    }
+
+    setC(['', '', '', '', '', '']);
   };
 
   const verif = () => {
@@ -33,16 +55,6 @@ export default function Verification() {
 
     return false;
   };
-
-  const cont = [createRef(), createRef(), createRef(), createRef(), createRef(), createRef()];
-
-  const [c, setC] = useState(['', '', '', '', '', '']);
-
-  useEffect(() => {
-    if (verif()) {
-      func.apply();
-    }
-  }, [c]);
 
   const changeTextC = (text, num) => {
     const auxArray = [];
@@ -80,6 +92,26 @@ export default function Verification() {
       cont[num].current.focus();
     }
   };
+
+  const backAction = () => {
+    navigation.navigate('Login');
+
+    scrClear();
+
+    return true;
+  };
+
+  useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress', backAction);
+
+    return () => BackHandler.removeEventListener('hardwareBackPress', backAction);
+  }, []);
+
+  useEffect(() => {
+    if (verif()) {
+      func.apply();
+    }
+  }, [c]);
 
   return (
     <ScrollView>
