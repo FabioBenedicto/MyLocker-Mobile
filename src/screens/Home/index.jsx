@@ -3,6 +3,7 @@ import { Text, View, Image, Alert, BackHandler } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { MaterialIcons } from '@expo/vector-icons';
 import Button from '../../components/Button';
+import gStyles from '../../components/gStyles';
 import styles from './styles';
 import NotFoundImage from '../../assets/NotFound.png';
 import UserImage from '../../assets/User.png';
@@ -10,6 +11,10 @@ import UserImage from '../../assets/User.png';
 export default function Home() {
   const navigation = useNavigation();
   const [color, setColor] = useState('#D1D1D1');
+
+  const func = () => {
+    navigation.navigate('Payment');
+  };
 
   const backAction = () => {
     Alert.alert('Calma!', 'Tem certeza que deseja voltar para tela de login?', [
@@ -54,7 +59,7 @@ export default function Home() {
 
         <View style={styles.yourLocker}>
           <Text style={styles.title}>Meu Armário</Text>
-          <View style={styles.line} />
+          <View style={gStyles.line} />
 
           {/* <View style={styles.lockerContainer}>
             <View>
@@ -69,7 +74,7 @@ export default function Home() {
           </View>
         </View>
 
-        <Button text="Alugar um Armário" />
+        <Button text="Alugar um Armário" press={func} />
 
       </View>
     </View>

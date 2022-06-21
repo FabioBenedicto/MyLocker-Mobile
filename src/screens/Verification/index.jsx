@@ -29,7 +29,7 @@ export default function Verification() {
     let empty = false;
 
     c.forEach((aux) => {
-      if (aux == '') {
+      if (aux == null) {
         empty = true;
       }
     });

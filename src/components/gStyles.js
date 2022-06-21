@@ -2,13 +2,13 @@ import { StyleSheet, Dimensions } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
-const textSize = [(height / 100) * 2.45, (height / 100) * 2.6, (height / 100) * 4.5];
+const textSize = [(height / 100) * 2.45, (height / 100) * 2.6, (height / 100) * 4.5, (height / 100) * 3.7, (height / 100) * 2.4];
 
 const gStyles = StyleSheet.create({
 
   container: {
     height,
-    padding: 20,
+    padding: '5%',
     flex: 1,
     flexDirection: 'column',
     // justifyContent: 'space-between',
@@ -35,6 +35,7 @@ const gStyles = StyleSheet.create({
 
   title: {
     fontSize: textSize[2],
+    textAlign: 'center',
   },
 
   bodyContainer: {
@@ -126,6 +127,42 @@ const gStyles = StyleSheet.create({
 
   modalText: {
     color: '#000000',
+  },
+
+  smallTitle: {
+    fontSize: textSize[3],
+    fontWeight: '500',
+  },
+
+  smallSubtitle: {
+    fontSize: textSize[4],
+  },
+
+  lockerInfo: {
+    width: '100%',
+  },
+
+  lineInfo: {
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'space-between',
+    marginBottom: 5,
+  },
+
+  color: {
+    width: 15,
+    height: 15,
+    backgroundColor: '#FF7B7B',
+    borderRadius: 5,
+    marginLeft: 5,
+  },
+
+  line: {
+    height: 1,
+    width: '100%',
+    backgroundColor: '#B0B0B0',
+    marginTop: 10,
+    marginBottom: 10,
   },
 
 });
