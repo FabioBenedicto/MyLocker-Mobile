@@ -8,6 +8,7 @@ import Verification from './src/screens/Verification';
 import CreatePassword from './src/screens/CreatePassword';
 import Home from './src/screens/Home';
 import LoginP2 from './src/screens/LoginP2';
+import LockersMap from './src/screens/LockersMap';
 import Payment from './src/screens/Payment';
 
 export default function App() {
@@ -36,6 +37,7 @@ export default function App() {
         <Screen name="CreatePassword" component={CreatePassword} />
         <Screen name="Home" component={Home} />
         <Screen name="LoginP2" component={LoginP2} />
+        <Screen name="LockersMap" component={LockersMap} />
         <Screen name="Payment" component={Payment} />
 
       </Navigator>

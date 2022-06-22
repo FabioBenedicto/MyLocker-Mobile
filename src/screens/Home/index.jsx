@@ -13,7 +13,7 @@ export default function Home() {
   const [color, setColor] = useState('#D1D1D1');
 
   const func = () => {
-    navigation.navigate('Payment');
+    navigation.navigate('LockersMap');
   };
 
   const backAction = () => {
