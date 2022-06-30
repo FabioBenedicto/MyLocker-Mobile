@@ -5,12 +5,13 @@ import Button from '../../components/Button';
 import gStyles from '../../components/gStyles';
 import styles from './styles';
 import Logo from '../../assets/Logo.png';
+import '../../components/gVar.js'
 
 export default function Login() {
   const navigation = useNavigation();
   const cont = createRef();
 
-  const [email, setEmail] = useState('cl200126@g.unicamp.br');
+  const [email, setEmail] = useState(gEmail);
   const [pass, setPass] = useState('');
 
   const func = () => {
@@ -29,7 +30,7 @@ export default function Login() {
   };
 
   const verif = () => {
-    if (email != '') {
+    if (pass == gPass) {
       return true;
     }
 
@@ -58,7 +59,6 @@ export default function Login() {
           <View style={gStyles.imageContainer}>
             <Image source={Logo} style={gStyles.image} />
           </View>
-
           <View style={gStyles.bodyContainer}>
             <View style={gStyles.textContainer}>
               <Text style={gStyles.title}>Entrar</Text>

@@ -5,6 +5,7 @@ import Button from '../../components/Button';
 import gStyles from '../../components/gStyles';
 import styles from './styles';
 import Logo from '../../assets/Logo.png';
+import '../../components/gVar.js'
 
 export default function Login() {
   const navigation = useNavigation();
@@ -14,12 +15,19 @@ export default function Login() {
 
   const [modV, setModV] = useState(false);
   // const [alertV, setAlertV] = useState(false);
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState(gEmail);
 
   const func = () => {
     if (verif()) {
-      navigation.navigate('Verification');
-      scrClear();
+      if(email == 'cl') {
+        gEmail = email;
+        navigation.navigate('LoginP2');
+        scrClear();
+      } else {
+        navigation.navigate('Verification');
+        scrClear();
+      }
+      
     }
   };
 

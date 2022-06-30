@@ -7,6 +7,8 @@ import gStyles from '../../components/gStyles';
 import styles from './styles';
 import NotFoundImage from '../../assets/NotFound.png';
 import UserImage from '../../assets/User.png';
+import '../../components/gVar.js'
+
 
 export default function Home() {
   const navigation = useNavigation();
@@ -50,7 +52,7 @@ export default function Home() {
 
           <View style={styles.textContainer}>
             <Text style={styles.titleU}>Fábio Benedicto</Text>
-            <Text style={styles.subtitleU}>cl200126@g.unicamp.br</Text>
+            <Text style={styles.subtitleU}>{gEmail}</Text>
           </View>
         </View>
       </View>

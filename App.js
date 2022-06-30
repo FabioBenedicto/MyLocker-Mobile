@@ -13,7 +13,8 @@ import Payment from './src/screens/Payment';
 
 export default function App() {
   const { Navigator, Screen } = createStackNavigator();
-
+  const {gemail, setGemail} = createStackNavigator();
+  
   return (
     <NavigationContainer>
 

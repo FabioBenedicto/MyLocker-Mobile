@@ -1,0 +1,2 @@
+global.gEmail = ''
+global.gPass = ''

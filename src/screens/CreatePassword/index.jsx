@@ -16,6 +16,7 @@ export default function Verification() {
 
   const func = () => {
     if (verif()) {
+      gPass = pass;
       navigation.navigate('LoginP2');
       scrClear();
     }
