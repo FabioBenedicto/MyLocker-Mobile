@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   },
 
   textContainer: {
-    marginTop: (width * -0.03),
+    marginTop: (width * -0.04),
     flex: 1,
   },
 
@@ -31,22 +31,38 @@ const styles = StyleSheet.create({
   },
 
   lockerText: {
-    /*     transform: [{ rotate: '-90deg' }],
-    alignSelf: 'center', */
+    fontSize: width/45,
+    transform: [{ rotate: '-90deg' }],
+    alignSelf: 'center',
+
+    position: 'absolute',
+    top: height/6,
+    left: (width/100 - width/100),  
   },
 
-  lockerImageContainer: {
-    aspectRatio: 1,
-    height: 150,
+  lockerImageBack: {
+    height: 90,
+    width: 75,
 
     backgroundColor: '#FDFF97',
+
+    alignSelf: 'center',
+
+    position: 'absolute',
+    top: width/40,
+    left: height/7.5,
   },
 
   lockerImage: {
     aspectRatio: 1,
-    height: 150,
+    height: 100,
     width: 'auto',
 
+    alignSelf: 'center',
+
+    position: 'absolute',
+    top: width/40,
+    left: height/10,
   },
 
 });

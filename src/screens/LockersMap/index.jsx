@@ -58,13 +58,8 @@ export default function Home() {
 
           <View style={styles.group}>
             <Text style={[gStyles.smallTitle, styles.lockerText]}>Sala 14</Text>
-            <View style={styles.lockerImageContainer}>
-              <Image
-                source={LockerContainer}
-                style={styles.lockerImage}
-                resizeMode="contain"
-              />
-            </View>
+            <View style={styles.lockerImageBack} />
+            <Image source={LockerContainer} style={styles.lockerImage} resizeMode="contain" />
           </View>
 
         </View>
