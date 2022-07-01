@@ -31,13 +31,13 @@ const styles = StyleSheet.create({
   },
 
   lockerText: {
-    fontSize: width/45,
+    fontSize: width / 45,
     transform: [{ rotate: '-90deg' }],
     alignSelf: 'center',
 
     position: 'absolute',
-    top: height/6,
-    left: (width/100 - width/100),  
+    top: height / 6,
+    left: (width / 100 - width / 100),
   },
 
   lockerImageBack: {
@@ -49,8 +49,8 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
 
     position: 'absolute',
-    top: width/40,
-    left: height/7.5,
+    top: width / 40,
+    left: height / 7.5,
   },
 
   lockerImage: {
@@ -61,8 +61,8 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
 
     position: 'absolute',
-    top: width/40,
-    left: height/10,
+    top: width / 40,
+    left: height / 10,
   },
 
 });
