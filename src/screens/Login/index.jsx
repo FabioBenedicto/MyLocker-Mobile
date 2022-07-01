@@ -24,7 +24,7 @@ export default function Login() {
         navigation.navigate('LoginP2');
         scrClear();
       } else {
-        navigation.navigate('LockersMap');//Verification
+        navigation.navigate('LockersMap_test');//Verification
         scrClear();
       }
       

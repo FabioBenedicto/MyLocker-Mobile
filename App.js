@@ -9,6 +9,7 @@ import CreatePassword from './src/screens/CreatePassword';
 import Home from './src/screens/Home';
 import LoginP2 from './src/screens/LoginP2';
 import LockersMap from './src/screens/LockersMap';
+import LockersMap_test from './src/screens/LockersMap_test'
 import Payment from './src/screens/Payment';
 
 export default function App() {
@@ -39,6 +40,7 @@ export default function App() {
         <Screen name="Home" component={Home} />
         <Screen name="LoginP2" component={LoginP2} />
         <Screen name="LockersMap" component={LockersMap} />
+        <Screen name="LockersMap_test" component={LockersMap_test} />
         <Screen name="Payment" component={Payment} />
 
       </Navigator>
