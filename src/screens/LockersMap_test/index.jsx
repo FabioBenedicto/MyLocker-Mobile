@@ -6,31 +6,34 @@ import gStyles from '../../components/gStyles';
 import styles from './styles';
 import Logo from '../../assets/Logo.png';
 import '../../components/gVar.js'
-import LockerContainer from '../../assets/LockerContainer.png';
+import LockerContainerY from '../../assets/LockerContainerY.png';
+import LockerContainerR from '../../assets/LockerContainerR.png';
+import LockerContainerG from '../../assets/LockerContainerG.png';
+import LockerContainerB from '../../assets/LockerContainerB.png';
 
 export default function Login() {
   const navigation = useNavigation();
 
   const [mapLocker, setMapLocker] = useState([
     { key: '1', type: true, data: 'Sala 10'},
-    { key: '2', type: false, data: ''},
+    { key: '2', type: false, data: LockerContainerY},
     { key: '3', type: true, data: 'Sala 11'},
-    { key: '4', type: false, data: ''},
+    { key: '4', type: false, data: LockerContainerY},
     { key: '5', type: true, data: 'Sala 12'},
     { key: '6', type: true, data: 'Saúde'},
-    { key: '7', type: false, data: ''},
+    { key: '7', type: false, data: LockerContainerR},
     { key: '8', type: true, data: 'Sala 13'},
-    { key: '9', type: false, data: ''},
+    { key: '9', type: false, data: LockerContainerR},
     { key: '10', type: true, data: 'Sala 14'},
-    { key: '11', type: false, data: ''},
+    { key: '11', type: false, data: LockerContainerR},
     { key: '12', type: true, data: 'Sala 15'},
     { key: '13', type: true, data: 'Sala 2'},
-    { key: '14', type: false, data: ''},
+    { key: '14', type: false, data: LockerContainerG},
     { key: '15', type: true, data: 'Sala 3'},
     { key: '16', type: true, data: 'Vestiário Masculino'},
-    { key: '17', type: false, data: ''},
+    { key: '17', type: false, data: LockerContainerB},
     { key: '18', type: true, data: 'Sala 4'},
-    { key: '19', type: false, data: ''},
+    { key: '19', type: false, data: LockerContainerB},
     { key: '20', type: true, data: 'Sala 5'}
 ])
 
@@ -47,7 +50,7 @@ export default function Login() {
   }, []);
 
   return (
-    <View style={gStyles.container}>
+    <View style={[gStyles.container, styles.container]}>
 
         <View style={styles.textContainer}>
             <Text style={gStyles.title}>Alugue um Armário</Text>
@@ -62,7 +65,7 @@ export default function Login() {
                     return( <Text style = {[gStyles.title, styles.flatData]}> {item.data} </Text> )
                 }
                 else {
-                    return( <TouchableOpacity style={styles.flatData}><Image source={LockerContainer} style={styles.lockerImage} resizeMode="contain" /></TouchableOpacity> )
+                    return( <TouchableOpacity style={styles.flatData}><Image source={item.data} style={styles.lockerImage} resizeMode="contain" /></TouchableOpacity> )
                 }
             }}
         />

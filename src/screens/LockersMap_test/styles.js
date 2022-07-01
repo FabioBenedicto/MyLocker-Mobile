@@ -4,6 +4,10 @@ const { width, height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
 
+  container: {
+    paddingBottom: 0,
+  },
+  
   textContainer: {
     flex:1,
     marginTop: 30,
@@ -26,7 +30,7 @@ const styles = StyleSheet.create({
   },
 
   flatData: {
-    marginTop: 20,
+    marginBottom: 20,
   },
 
 });
