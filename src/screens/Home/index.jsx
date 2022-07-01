@@ -12,7 +12,7 @@ import '../../components/gVar.js'
 
 export default function Home() {
   const navigation = useNavigation();
-  const [color, setColor] = useState('#D1D1D1');
+  const [color, setColor] = useState(gColor);
 
   const func = () => {
     navigation.navigate('LockersMap');
