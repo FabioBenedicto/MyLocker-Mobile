@@ -8,58 +8,58 @@ import styles from './styles';
 import Logo from '../../assets/Logo.png';
 
 export default function Verification() {
-  const navigation = useNavigation();
-  const cont = [createRef(), createRef(), createRef(), createRef(), createRef(), createRef()];
+    const navigation = useNavigation();
+    const cont = [createRef(), createRef(), createRef(), createRef(), createRef(), createRef()];
 
-  const ALLOWED_CHARACTERS = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 'r', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+    const ALLOWED_CHARACTERS = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 'r', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
 
-  const [c, setC] = useState([null, null, null, null, null, null]);
-  const [cCode, setCCode] = useState('');
+    const [c, setC] = useState([null, null, null, null, null, null]);
+    const [cCode, setCCode] = useState('');
 
-  const func = () => {
-    if (verif()) {
-      navigation.navigate('CreatePassword');
-      scrClear();
-    } else {
-      Alert.alert('>:(');
-    }
-  };
+    const func = () => {
+        if (verif()) {
+            navigation.navigate('CreatePassword');
+            scrClear();
+        } else {
+            Alert.alert('>:(');
+        }
+    };
 
-  const scrClear = () => {
-    let empty = false;
+    const scrClear = () => {
+        let empty = false;
 
-    c.forEach((aux) => {
-      if (aux == null) {
-        empty = true;
-      }
-    });
+        c.forEach((aux) => {
+            if (aux == null) {
+                empty = true;
+            }
+        });
 
-    if (!empty) {
-      cont.forEach((aux) => {
-        aux.current.clear();
-      });
-    }
+        if (!empty) {
+            cont.forEach((aux) => {
+                aux.current.clear();
+            });
+        }
 
-    setC(['', '', '', '', '', '']);
-  };
+        setC(['', '', '', '', '', '']);
+    };
 
-  const verif = () => {
-    let auxContagem = 0;
+    const verif = () => {
+        let auxContagem = 0;
 
-    c.forEach((aux) => {
-      if (aux == null || aux.trim() == '') {
-        auxContagem++;
-      }
-    });
+        c.forEach((aux) => {
+            if (aux == null || aux.trim() == '') {
+                auxContagem++;
+            }
+        });
 
-    if (auxContagem == 0) {
-      return true;
-    }
+        if (auxContagem == 0) {
+            return true;
+        }
 
-    return false;
-  };
+        return false;
+    };
 
-  /*   const textChange = (e, num) => {
+    /*   const textChange = (e, num) => {
     if (ALLOWED_CHARACTERS.includes(e.nativeEvent.toLowerCase())) {
       const auxArray = [];
       let i = 0;
@@ -78,99 +78,99 @@ export default function Verification() {
     }
   }; */
 
-  const cChange = (back, e, num) => {
-    const auxArray = [];
-    let i = 0;
-    c.forEach((auxElement) => {
-      auxArray[i] = auxElement;
-      i += 1;
-    });
+    const cChange = (back, e, num) => {
+        const auxArray = [];
+        let i = 0;
+        c.forEach((auxElement) => {
+            auxArray[i] = auxElement;
+            i += 1;
+        });
 
-    if (back) {
-      auxArray[num] = null;
-    } else {
-      auxArray[num] = e.nativeEvent.key;
-    }
+        if (back) {
+            auxArray[num] = null;
+        } else {
+            auxArray[num] = e.nativeEvent.key;
+        }
 
-    setC([auxArray[0], auxArray[1], auxArray[2], auxArray[3], auxArray[4], auxArray[5]]);
-  };
+        setC([auxArray[0], auxArray[1], auxArray[2], auxArray[3], auxArray[4], auxArray[5]]);
+    };
 
-  const handleKeyPress = (e, num) => {
-    if (ALLOWED_CHARACTERS.includes(e.nativeEvent.key.toLowerCase())) {
-      cChange(false, e, num);
+    const handleKeyPress = (e, num) => {
+        if (ALLOWED_CHARACTERS.includes(e.nativeEvent.key.toLowerCase())) {
+            cChange(false, e, num);
 
-      if (num != 5) {
-        cont[++num].current.focus();
-      }
-    }
+            if (num != 5) {
+                cont[++num].current.focus();
+            }
+        }
 
-    if (e.nativeEvent.key == 'Backspace') {
-      cChange(true, e, num);
+        if (e.nativeEvent.key == 'Backspace') {
+            cChange(true, e, num);
 
-      if (num == 0) {
-        return;
-      }
+            if (num == 0) {
+                return;
+            }
 
-      num--;
-      cont[num].current.clear();
-      cont[num].current.focus();
-    }
-  };
+            num--;
+            cont[num].current.clear();
+            cont[num].current.focus();
+        }
+    };
 
-  const backAction = () => {
-    navigation.navigate('Login');
+    const backAction = () => {
+        navigation.navigate('Login');
 
-    scrClear();
+        scrClear();
 
-    return true;
-  };
+        return true;
+    };
 
-  useEffect(() => {
-    BackHandler.addEventListener('hardwareBackPress', backAction);
+    useEffect(() => {
+        BackHandler.addEventListener('hardwareBackPress', backAction);
 
-    return () => BackHandler.removeEventListener('hardwareBackPress', backAction);
-  }, []);
+        return () => BackHandler.removeEventListener('hardwareBackPress', backAction);
+    }, []);
 
-  useEffect(() => {
-    setCCode(c[0] + c[1] + c[2] + c[3] + c[4] + c[5]);
+    useEffect(() => {
+        setCCode(c[0] + c[1] + c[2] + c[3] + c[4] + c[5]);
 
-    if (verif()) {
-      func.apply();
-    }
-  }, [c]);
+        if (verif()) {
+            func.apply();
+        }
+    }, [c]);
 
-  return (
-    <ScrollView>
-      <View style={gStyles.container}>
-        <View style={gStyles.container2}>
-          <View style={gStyles.imageContainer}>
-            <Image source={Logo} style={gStyles.image} />
-          </View>
+    return (
+        <ScrollView>
+            <View style={gStyles.container}>
+                <View style={gStyles.container2}>
+                    <View style={gStyles.imageContainer}>
+                        <Image source={Logo} style={gStyles.image} />
+                    </View>
 
-          <View style={gStyles.bodyContainer}>
-            <View style={gStyles.textContainer}>
-              <Text style={gStyles.title}>Verifique seu e-mail</Text>
-              <Text style={gStyles.subtitle}>Digite o código enviado para o seu e-mail</Text>
+                    <View style={gStyles.bodyContainer}>
+                        <View style={gStyles.textContainer}>
+                            <Text style={gStyles.title}>Verifique seu e-mail</Text>
+                            <Text style={gStyles.subtitle}>Digite o código enviado para o seu e-mail</Text>
+                        </View>
+
+                        <View style={styles.inputContainer}>
+                            <TextInput style={[gStyles.input, styles.input]} ref={cont[0]} maxLength={1} value={c[0]} onKeyPress={(e) => handleKeyPress(e, 0)} />
+                            <TextInput style={[gStyles.input, styles.input]} ref={cont[1]} maxLength={1} value={c[1]} onKeyPress={(e) => handleKeyPress(e, 1)} />
+                            <TextInput style={[gStyles.input, styles.input]} ref={cont[2]} maxLength={1} value={c[2]} onKeyPress={(e) => handleKeyPress(e, 2)} />
+                            <TextInput style={[gStyles.input, styles.input]} ref={cont[3]} maxLength={1} value={c[3]} onKeyPress={(e) => handleKeyPress(e, 3)} />
+                            <TextInput style={[gStyles.input, styles.input]} ref={cont[4]} maxLength={1} value={c[4]} onKeyPress={(e) => handleKeyPress(e, 4)} />
+                            <TextInput style={[gStyles.input, styles.input]} ref={cont[5]} maxLength={1} value={c[5]} onKeyPress={(e) => handleKeyPress(e, 5)} />
+                        </View>
+
+                        <TouchableOpacity style={gStyles.linkContainer}>
+                            <Text style={gStyles.linkText}>Reenviar código</Text>
+                        </TouchableOpacity>
+                    </View>
+
+                </View>
+
+                <Button text="Continuar" press={func} />
             </View>
-
-            <View style={styles.inputContainer}>
-              <TextInput style={[gStyles.input, styles.input]} ref={cont[0]} maxLength={1} value={c[0]} onKeyPress={(e) => handleKeyPress(e, 0)} />
-              <TextInput style={[gStyles.input, styles.input]} ref={cont[1]} maxLength={1} value={c[1]} onKeyPress={(e) => handleKeyPress(e, 1)} />
-              <TextInput style={[gStyles.input, styles.input]} ref={cont[2]} maxLength={1} value={c[2]} onKeyPress={(e) => handleKeyPress(e, 2)} />
-              <TextInput style={[gStyles.input, styles.input]} ref={cont[3]} maxLength={1} value={c[3]} onKeyPress={(e) => handleKeyPress(e, 3)} />
-              <TextInput style={[gStyles.input, styles.input]} ref={cont[4]} maxLength={1} value={c[4]} onKeyPress={(e) => handleKeyPress(e, 4)} />
-              <TextInput style={[gStyles.input, styles.input]} ref={cont[5]} maxLength={1} value={c[5]} onKeyPress={(e) => handleKeyPress(e, 5)} />
-            </View>
-
-            <TouchableOpacity style={gStyles.linkContainer}>
-              <Text style={gStyles.linkText}>Reenviar código</Text>
-            </TouchableOpacity>
-          </View>
-
-        </View>
-
-        <Button text="Continuar" press={func} />
-      </View>
-    </ScrollView>
-  );
+        </ScrollView>
+    );
 }

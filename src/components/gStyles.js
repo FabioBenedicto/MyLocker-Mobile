@@ -6,164 +6,164 @@ const textSize = [(height / 100) * 2.45, (height / 100) * 2.6, (height / 100) * 
 
 const gStyles = StyleSheet.create({
 
-  container: {
-    height,
-    padding: '5%',
-    flex: 1,
-    flexDirection: 'column',
+    container: {
+        height,
+        padding: '5%',
+        flex: 1,
+        flexDirection: 'column',
     // justifyContent: 'space-between',
     // alignItems: 'center',
-  },
+    },
 
-  container2: {
-    flex: 1,
-    // justifyContent: 'center',
-    alignItems: 'center',
-  },
+    container2: {
+        flex: 1,
+        // justifyContent: 'center',
+        alignItems: 'center',
+    },
 
-  imageContainer: {
+    imageContainer: {
     // marginTop: 120,
-    flex: 2,
-    flexDirection: 'column',
-    justifyContent: 'flex-end',
-    marginBottom: 10,
-  },
+        flex: 2,
+        flexDirection: 'column',
+        justifyContent: 'flex-end',
+        marginBottom: 10,
+    },
 
-  image: {
+    image: {
     // marginTop: 120,
-  },
+    },
 
-  title: {
-    fontSize: textSize[2],
-    textAlign: 'center',
-  },
+    title: {
+        fontSize: textSize[2],
+        textAlign: 'center',
+    },
 
-  bodyContainer: {
-    flex: 4,
-    width: '100%',
-    flexDirection: 'column',
-    justifyContent: 'center',
-  },
+    bodyContainer: {
+        flex: 4,
+        width: '100%',
+        flexDirection: 'column',
+        justifyContent: 'center',
+    },
 
-  textContainer: {
-    alignItems: 'center',
-    marginBottom: 20,
-  },
+    textContainer: {
+        alignItems: 'center',
+        marginBottom: 20,
+    },
 
-  subtitle: {
-    color: '#666666',
-    fontSize: textSize[1],
-    marginTop: (height / 100) * 0.8,
-    textAlign: 'center',
-    paddingLeft: '5%',
-    paddingRight: '5%',
-  },
+    subtitle: {
+        color: '#666666',
+        fontSize: textSize[1],
+        marginTop: (height / 100) * 0.8,
+        textAlign: 'center',
+        paddingLeft: '5%',
+        paddingRight: '5%',
+    },
 
-  inputContainer: {
-    width: '100%',
+    inputContainer: {
+        width: '100%',
     // justifyContent: 'space-between',
     // marginBottom: 10,
-  },
+    },
 
-  input: {
-    width: (width / 100) * 90,
-    height: 75,
-    borderRadius: 10,
-    padding: 23,
-    backgroundColor: '#ffffff',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    marginBottom: 15,
+    input: {
+        width: (width / 100) * 90,
+        height: 75,
+        borderRadius: 10,
+        padding: 23,
+        backgroundColor: '#ffffff',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        marginBottom: 15,
 
-    fontSize: textSize[1],
+        fontSize: textSize[1],
 
-    shadowColor: '#000',
-    elevation: 5,
-  },
+        shadowColor: '#000',
+        elevation: 5,
+    },
 
-  linkContainer: {
-    marginStart: 10,
-    alignSelf: 'flex-start',
-  },
+    linkContainer: {
+        marginStart: 10,
+        alignSelf: 'flex-start',
+    },
 
-  linkText: {
-    fontSize: textSize[0],
-    color: '#0085FF',
-  },
+    linkText: {
+        fontSize: textSize[0],
+        color: '#0085FF',
+    },
 
-  background: {
-    flex: 1,
-    backgroundColor: 'gray',
-    opacity: 0.15,
-  },
+    background: {
+        flex: 1,
+        backgroundColor: 'gray',
+        opacity: 0.15,
+    },
 
-  contentContainer: {
-    width,
+    contentContainer: {
+        width,
 
-    justifyContent: 'space-between',
+        justifyContent: 'space-between',
 
-    alignItems: 'center',
-    padding: 20,
+        alignItems: 'center',
+        padding: 20,
 
-    backgroundColor: 'white',
+        backgroundColor: 'white',
 
-    position: 'absolute',
-    bottom: 0,
+        position: 'absolute',
+        bottom: 0,
 
-    borderTopRightRadius: 25,
-    borderTopLeftRadius: 25,
+        borderTopRightRadius: 25,
+        borderTopLeftRadius: 25,
 
-    shadowColor: '#000',
-    elevation: 50,
-  },
+        shadowColor: '#000',
+        elevation: 50,
+    },
 
-  modalTitle: {
-    marginTop: 20,
-  },
+    modalTitle: {
+        marginTop: 20,
+    },
 
-  modalTextContainer: {
-    marginTop: 20,
-  },
+    modalTextContainer: {
+        marginTop: 20,
+    },
 
-  modalText: {
-    color: '#000000',
-  },
+    modalText: {
+        color: '#000000',
+    },
 
-  smallTitle: {
-    fontSize: textSize[3],
-    fontWeight: '500',
-  },
+    smallTitle: {
+        fontSize: textSize[3],
+        fontWeight: '500',
+    },
 
-  smallSubtitle: {
-    fontSize: textSize[4],
-  },
+    smallSubtitle: {
+        fontSize: textSize[4],
+    },
 
-  lockerInfo: {
-    width: '100%',
-  },
+    lockerInfo: {
+        width: '100%',
+    },
 
-  lineInfo: {
-    flexDirection: 'row',
-    width: '100%',
-    justifyContent: 'space-between',
-    marginBottom: 5,
-  },
+    lineInfo: {
+        flexDirection: 'row',
+        width: '100%',
+        justifyContent: 'space-between',
+        marginBottom: 5,
+    },
 
-  color: {
-    width: 15,
-    height: 15,
-    backgroundColor: '#FF7B7B',
-    borderRadius: 5,
-    marginLeft: 5,
-  },
+    color: {
+        width: 15,
+        height: 15,
+        backgroundColor: '#FF7B7B',
+        borderRadius: 5,
+        marginLeft: 5,
+    },
 
-  line: {
-    height: 1,
-    width: '100%',
-    backgroundColor: '#B0B0B0',
-    marginTop: 10,
-    marginBottom: 10,
-  },
+    line: {
+        height: 1,
+        width: '100%',
+        backgroundColor: '#B0B0B0',
+        marginTop: 10,
+        marginBottom: 10,
+    },
 
 });
 

@@ -12,38 +12,38 @@ import LockersMap from './src/screens/LockersMap';
 import Payment from './src/screens/Payment';
 
 export default function App() {
-  const { Navigator, Screen } = createStackNavigator();
-  const {gemail, setGemail} = createStackNavigator();
-  
-  return (
-    <NavigationContainer>
+    const { Navigator, Screen } = createStackNavigator();
+    const { gemail, setGemail } = createStackNavigator();
 
-      <StatusBar
-        barStyle="dark-content"
-        translucent
-      // backgroundColor="black"
-      />
-      <Navigator
-        // headerMode="none"
-        initialRouteName="Login"
-        screenOptions={{
-          headerShown: false,
-          cardStyle: {
-            backgroundColor: '#fff',
-          },
-        }}
-      >
-        <Screen name="Login" component={Login} />
-        <Screen name="Verification" component={Verification} />
-        <Screen name="CreatePassword" component={CreatePassword} />
-        <Screen name="Home" component={Home} />
-        <Screen name="LoginP2" component={LoginP2} />
-        <Screen name="LockersMap" component={LockersMap} />
-        <Screen name="Payment" component={Payment} />
+    return (
+        <NavigationContainer>
 
-      </Navigator>
-    </NavigationContainer>
-  );
+            <StatusBar
+                barStyle="dark-content"
+                translucent
+                // backgroundColor="black"
+            />
+            <Navigator
+                // headerMode="none"
+                initialRouteName="Login"
+                screenOptions={{
+                    headerShown: false,
+                    cardStyle: {
+                        backgroundColor: '#fff',
+                    },
+                }}
+            >
+                <Screen name="Login" component={Login} />
+                <Screen name="Verification" component={Verification} />
+                <Screen name="CreatePassword" component={CreatePassword} />
+                <Screen name="Home" component={Home} />
+                <Screen name="LoginP2" component={LoginP2} />
+                <Screen name="LockersMap" component={LockersMap} />
+                <Screen name="Payment" component={Payment} />
+
+            </Navigator>
+        </NavigationContainer>
+    );
 }
 
 const styles = StyleSheet.create({});

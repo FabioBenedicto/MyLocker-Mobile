@@ -3,28 +3,28 @@ import { StyleSheet, Dimensions } from 'react-native';
 const { width, height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
-  container: {
-    marginTop: (height / 100) * 9,
+    container: {
+        marginTop: (height / 100) * 9,
 
-    marginBottom: (height / 100) * 6,
+        marginBottom: (height / 100) * 6,
 
-    width: '100%',
+        width: '100%',
 
-    borderRadius: (height / 100) * 2,
+        borderRadius: (height / 100) * 2,
 
-    padding: (height / 100) * 1.6,
+        padding: (height / 100) * 1.6,
 
-    backgroundColor: '#0085FF',
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'center',
-  },
+        backgroundColor: '#0085FF',
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'center',
+    },
 
-  txt: {
-    color: 'white',
-    fontSize: (height / 100) * 3.6,
-    fontWeight: '500',
-  },
+    txt: {
+        color: 'white',
+        fontSize: (height / 100) * 3.6,
+        fontWeight: '500',
+    },
 });
 
 export default styles;

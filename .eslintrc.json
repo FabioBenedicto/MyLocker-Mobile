@@ -31,9 +31,14 @@
         "react/prop-types":"off",
         "import/no-extraneous-dependencies": "off",
         "func-names": ["error", "never"],
-        "react/jsx-indent" : [2, 2],
+        "react/jsx-indent" : [2, 4],
         "max-len": ["error", { "code": 1000 }],
         "no-plusplus": "off",
-        "no-param-reassign": "off"
+        "no-param-reassign": "off",
+        "linebreak-style": "off",
+        "no-import-assign": "off",
+        "indent": ["error", 4],
+        "react/jsx-indent-props": [2, 4],
+        "react/destructuring-assignment": "off"  
     }
 }

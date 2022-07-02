@@ -1,3 +1,2 @@
-global.gEmail = ''
-global.gPass = ''
-global.gColor = '#D1D1D'
+global.gEmail = '';
+global.gPass = '';
