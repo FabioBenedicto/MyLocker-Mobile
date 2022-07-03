@@ -7,8 +7,9 @@ import styles from './styles';
 import Locker from '../../assets/Locker.png';
 import Btn from '../../components/Button';
 
-export default function Payment() {
+export default function Payment({ route }) {
     const navigation = useNavigation();
+    const [email, setEmail] = useState(route.params.passEmail);
 
     const [color, setColor] = useState('#D1D1D1');
 
@@ -17,7 +18,9 @@ export default function Payment() {
     }, []);
 
     const func = () => {
-        navigation.navigate('Home');
+        navigation.navigate('Home', {
+            passEmail: email,
+        });
     };
 
     const backAction = () => {
@@ -28,7 +31,9 @@ export default function Payment() {
             },
 
             { text: 'Sim',
-                onPress: () => navigation.navigate('Home') },
+                onPress: () => navigation.navigate('Home', {
+                    passEmail: email,
+                }) },
         ]);
         return true;
     };

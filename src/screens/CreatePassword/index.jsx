@@ -7,7 +7,7 @@ import gStyles from '../../components/gStyles';
 import styles from './styles';
 import Logo from '../../assets/Logo.png';
 
-export default function Verification({ route }) {
+export default function CreatePassword({ route }) {
     const navigation = useNavigation();
     const cont = [createRef(), createRef()];
 

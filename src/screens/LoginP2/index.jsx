@@ -6,7 +6,7 @@ import gStyles from '../../components/gStyles';
 import styles from './styles';
 import Logo from '../../assets/Logo.png';
 
-export default function Login({ route }) {
+export default function LoginP2({ route }) {
     const navigation = useNavigation();
     const cont = createRef();
 

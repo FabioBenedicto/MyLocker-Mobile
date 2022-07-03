@@ -4,6 +4,10 @@ const { width, height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
 
+    container: {
+        paddingHorizontal: 5,
+    },
+
     inputContainer: {
         flexDirection: 'row',
         width: '100%',
@@ -12,7 +16,7 @@ const styles = StyleSheet.create({
     },
 
     input: {
-        width: 55,
+        width: 54,
         height: 70,
 
         marginBottom: 0,

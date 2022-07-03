@@ -14,7 +14,9 @@ export default function Home({ route }) {
     const [email, setEmail] = useState(route.params.passEmail);
 
     const func = () => {
-        navigation.navigate('LockersMap');
+        navigation.navigate('LockersMap', {
+            passEmail: email,
+        });
     };
 
     const backAction = () => {

@@ -10,8 +10,9 @@ import LockerContainerR from '../../assets/LockerContainerR.png';
 import LockerContainerG from '../../assets/LockerContainerG.png';
 import LockerContainerB from '../../assets/LockerContainerB.png';
 
-export default function Login() {
+export default function LockersMap({ route }) {
     const navigation = useNavigation();
+    const [email, setEmail] = useState(route.params.passEmail);
 
     const [mapLocker, setMapLocker] = useState([
         { key: '1', type: true, data: 'Sala 10' },
@@ -40,7 +41,9 @@ export default function Login() {
     ]);
 
     const backAction = () => {
-        navigation.navigate('Home');
+        navigation.navigate('Home', {
+            passEmail: email,
+        });
 
         return true;
     };

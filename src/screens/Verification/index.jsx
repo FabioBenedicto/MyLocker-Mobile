@@ -144,7 +144,7 @@ export default function Verification({ route }) {
 
     return (
         <ScrollView>
-            <View style={gStyles.container}>
+            <View style={[gStyles.container, styles.container]}>
                 <View style={gStyles.container2}>
                     <View style={gStyles.imageContainer}>
                         <Image source={Logo} style={gStyles.image} />
