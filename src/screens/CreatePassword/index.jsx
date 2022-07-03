@@ -7,16 +7,19 @@ import gStyles from '../../components/gStyles';
 import styles from './styles';
 import Logo from '../../assets/Logo.png';
 
-export default function Verification() {
+export default function Verification({ route }) {
     const navigation = useNavigation();
     const cont = [createRef(), createRef()];
 
     const [pass, setPass] = useState('');
     const [conf, setConf] = useState('');
+    const [email, setEmail] = useState(route.params.passEmail);
 
     const func = () => {
         if (verif()) {
-            navigation.navigate('LoginP2');
+            navigation.navigate('LoginP2', {
+                passEmail: email,
+            });
             scrClear();
         }
     };

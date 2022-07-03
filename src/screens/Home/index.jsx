@@ -8,9 +8,10 @@ import styles from './styles';
 import NotFoundImage from '../../assets/NotFound.png';
 import UserImage from '../../assets/User.png';
 
-export default function Home() {
+export default function Home({ route }) {
     const navigation = useNavigation();
     const [color, setColor] = useState('#D1D1D1');
+    const [email, setEmail] = useState(route.params.passEmail);
 
     const func = () => {
         navigation.navigate('LockersMap');
@@ -50,7 +51,7 @@ export default function Home() {
 
                     <View style={styles.textContainer}>
                         <Text style={styles.titleU}>Fábio Benedicto</Text>
-                        <Text style={styles.subtitleU}>aaaa</Text>
+                        <Text style={styles.subtitleU}>{email}</Text>
                     </View>
                 </View>
             </View>

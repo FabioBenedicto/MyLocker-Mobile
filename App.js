@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
+
 import Login from './src/screens/Login';
 import Verification from './src/screens/Verification';
 import CreatePassword from './src/screens/CreatePassword';

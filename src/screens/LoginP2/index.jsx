@@ -6,18 +6,18 @@ import gStyles from '../../components/gStyles';
 import styles from './styles';
 import Logo from '../../assets/Logo.png';
 
-export default function Login(props) {
+export default function Login({ route }) {
     const navigation = useNavigation();
     const cont = createRef();
 
-    const { passEmail } = props.navigation;
-
-    const [email, setEmail] = useState(passEmail);
+    const [email, setEmail] = useState(route.params.passEmail);
     const [pass, setPass] = useState('');
 
     const func = () => {
         if (verif()) {
-            navigation.navigate('Home');
+            navigation.navigate('Home', {
+                passEmail: email,
+            });
             scrClear();
         }
     };

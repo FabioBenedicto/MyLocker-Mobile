@@ -19,10 +19,14 @@ export default function Login() {
     const func = () => {
         if (verif()) {
             if (email == 'cl') {
-                navigation.navigate('LoginP2', { pass_email: email });
+                navigation.navigate('LoginP2', {
+                    passEmail: email,
+                });
                 scrClear();
             } else {
-                navigation.navigate('Verification');
+                navigation.navigate('Verification', {
+                    passEmail: email,
+                });
                 scrClear();
             }
         }

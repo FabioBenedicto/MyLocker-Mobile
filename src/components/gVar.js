@@ -1,2 +1,0 @@
-global.gEmail = '';
-global.gPass = '';
