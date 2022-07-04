@@ -10,7 +10,7 @@ import Btn from '../../components/Button';
 export default function Payment({ route }) {
     const navigation = useNavigation();
     const [email, setEmail] = useState(route.params.passEmail);
-
+    const [locker, setLocker] = useState(route.params.locker);
     const [color, setColor] = useState('#D1D1D1');
 
     useEffect(() => {
@@ -71,7 +71,7 @@ export default function Payment({ route }) {
                             </View>
 
                             <View>
-                                <Text style={gStyles.smallTitle}>Armário 752</Text>
+                                <Text style={gStyles.smallTitle}>Armário {locker}</Text>
                                 <Text style={[gStyles.smallSubtitle, { textAlign: 'right' }]}>R$200,00</Text>
                             </View>
 

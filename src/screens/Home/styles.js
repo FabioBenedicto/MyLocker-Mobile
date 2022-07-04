@@ -55,15 +55,14 @@ const styles = StyleSheet.create({
         height: (height / 100) * 15,
         // mar: 20,
         // transform: [{ translateY: height / 10 }]
-
     },
 
     imageU2: {
         width: 22,
         height: 23,
         position: 'absolute',
-        top: 15,
-        right: 15,
+        top: 10,
+        right: 20,
         transform: [{ translateY: (height / 100) * 2.5 }],
     },
 
@@ -96,7 +95,7 @@ const styles = StyleSheet.create({
     nolockerContainer: {
         alignSelf: 'center',
         // marginTop: 35,
-        marginTop: (height / 100) * 5,
+        marginTop: (height / 100) * 2,
     },
 
     lockerContainer: {
@@ -123,29 +122,6 @@ const styles = StyleSheet.create({
     width: 230, */
     },
 
-    btn: {
-    /* borderRadius: 10,
-    marginTop: 70,
-    padding: 10, */
-
-        marginTop: (height / 100) * 9.5,
-        marginLeft: (height / 100) * 0.8,
-        marginRight: (height / 100) * 0.8,
-
-        borderRadius: (height / 100) * 1.6,
-
-        padding: (height / 100) * 1.6,
-
-        backgroundColor: '#0085FF',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-
-    btnText: {
-        color: 'white',
-        fontSize: (height / 100) * 3.6,
-        fontWeight: '500',
-    },
 });
 
 export default styles;

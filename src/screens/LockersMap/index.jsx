@@ -41,9 +41,10 @@ export default function LockersMap({ route }) {
         { key: '23', type: true, data: 'Sala 5' },
     ]);
 
-    const func = () => {
+    const func = (item) => {
         navigation.navigate('Payment', {
             passEmail: email,
+            locker: item,
         });
     };
 
@@ -53,18 +54,18 @@ export default function LockersMap({ route }) {
 
     const loadLockers = (passColor) => {
         setLockers([
-            { key: '1', available: true, color: passColor, pressFunc: () => func() },
-            { key: '2', available: true, color: passColor, pressFunc: () => func() },
-            { key: '3', available: true, color: passColor, pressFunc: () => func() },
-            { key: '4', available: true, color: passColor, pressFunc: () => func() },
-            { key: '5', available: true, color: passColor, pressFunc: () => func() },
-            { key: '6', available: true, color: passColor, pressFunc: () => func() },
-            { key: '7', available: true, color: passColor, pressFunc: () => func() },
-            { key: '8', available: true, color: passColor, pressFunc: () => func() },
-            { key: '9', available: true, color: passColor, pressFunc: () => func() },
-            { key: '10', available: true, color: passColor, pressFunc: () => func() },
-            { key: '11', available: true, color: passColor, pressFunc: () => func() },
-            { key: '12', available: true, color: passColor, pressFunc: () => func() },
+            { key: '1', available: true, color: passColor },
+            { key: '2', available: true, color: passColor },
+            { key: '3', available: true, color: passColor },
+            { key: '4', available: true, color: passColor },
+            { key: '5', available: true, color: passColor },
+            { key: '6', available: true, color: passColor },
+            { key: '7', available: true, color: passColor },
+            { key: '8', available: true, color: passColor },
+            { key: '9', available: true, color: passColor },
+            { key: '10', available: true, color: passColor },
+            { key: '11', available: true, color: passColor },
+            { key: '12', available: true, color: passColor },
         ]);
 
         setVisible('none');
@@ -114,7 +115,7 @@ export default function LockersMap({ route }) {
                 numColumns={4}
                 renderItem={({ item }) => (
                     <View>
-                        <TouchableOpacity onPress={item.pressFunc} style={styles.flatDataL}>
+                        <TouchableOpacity onPress={() => func(item.key)} style={styles.flatDataL}>
                             <Image source={Locker} style={[styles.lockerImageL, { backgroundColor: item.color }]} resizeMode="contain" />
                         </TouchableOpacity>
                     </View>
