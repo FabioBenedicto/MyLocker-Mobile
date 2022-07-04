@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
         width: 'auto',
 
         alignSelf: 'center',
-
     },
 
     flatData: {
@@ -37,6 +36,24 @@ const styles = StyleSheet.create({
 
     line: {
         marginBottom: 30,
+    },
+
+    flatlistL: {
+        marginTop: 120,
+    },
+
+    lockerImageL: {
+        aspectRatio: 0.6,
+        height: 100,
+        width: 'auto',
+        borderRadius: 7.5,
+
+        alignContent: 'space-between',
+    },
+
+    flatDataL: {
+        marginRight: 27,
+        marginBottom: 20,
     },
 
 });
