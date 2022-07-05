@@ -40,7 +40,9 @@ export default function LoginP2({ route }) {
     };
 
     const backAction = () => {
-        navigation.navigate('Login');
+        navigation.navigate('Login', {
+            passEmail: email,
+        });
 
         scrClear();
 
@@ -71,7 +73,14 @@ export default function LoginP2({ route }) {
                             <TextInput style={gStyles.input} value={pass} ref={cont} placeholder="Senha" placeholderTextColor="#7D7B7B" onChangeText={(text) => setPass(text)} blurOnSubmit={false} onSubmitEditing={(e) => func()} />
                         </View>
 
-                        <TouchableOpacity style={gStyles.linkContainer} onPress={() => navigation.navigate('Verification')}>
+                        <TouchableOpacity
+                            style={gStyles.linkContainer}
+                            onPress={() => {
+                                navigation.navigate('Verification', {
+                                    passEmail: email,
+                                });
+                            }}
+                        >
                             <Text style={gStyles.linkText}>Esqueceu sua senha?</Text>
                         </TouchableOpacity>
                     </View>

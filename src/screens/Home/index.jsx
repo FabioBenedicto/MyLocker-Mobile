@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, Image, Alert, BackHandler } from 'react-native';
+import { Text, View, Image, Alert, BackHandler, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { MaterialIcons } from '@expo/vector-icons';
 import Button from '../../components/Button';
@@ -42,11 +42,13 @@ export default function Home({ route }) {
         <View style={styles.container}>
 
             <View style={[styles.header, { backgroundColor: color }]}>
-                <MaterialIcons
-                    name="settings"
-                    size={24}
-                    style={styles.imageU2}
-                />
+                <TouchableOpacity>
+                    <MaterialIcons
+                        name="settings"
+                        size={24}
+                        style={styles.imageU2}
+                    />
+                </TouchableOpacity>
 
                 <View style={styles.user}>
                     <Image style={styles.imageU} source={UserImage} />

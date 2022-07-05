@@ -7,7 +7,7 @@ const textSize = [(height / 100) * 2.45, (height / 100) * 2.6, (height / 100) * 
 const gStyles = StyleSheet.create({
 
     container: {
-        height,
+        height: height - 10,
         padding: '5%',
         flex: 1,
         flexDirection: 'column',

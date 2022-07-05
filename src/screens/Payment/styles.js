@@ -66,7 +66,9 @@ const styles = StyleSheet.create({
     },
 
     buttonContainer: {
-        flex: 2.7375,
+        marginTop: -25,
+        padding: '5%',
+        paddingTop: '-4%',
     },
 
 });

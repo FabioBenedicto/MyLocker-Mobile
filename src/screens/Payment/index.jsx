@@ -127,13 +127,14 @@ export default function Payment({ route }) {
 
                     </View>
 
-                    <View style={styles.buttonContainer}>
-                        <Btn text="Alugar um Armário" press={func} />
-                    </View>
+                </View>
 
+                <View style={styles.buttonContainer}>
+                    <Btn text="Alugar Armário" press={func} />
                 </View>
 
             </View>
+
         </ScrollView>
     );
 }

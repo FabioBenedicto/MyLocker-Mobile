@@ -4,9 +4,12 @@ const { width, height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: (height / 100) * 9,
+        /* marginTop: (height / 100) * 9,
 
-        marginBottom: (height / 100) * 6,
+        marginBottom: (height / 100) * 6, */
+
+        position: 'absolute',
+        bottom: (height / 100) * 5,
 
         width: '100%',
 
@@ -18,6 +21,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         alignSelf: 'center',
+    },
+
+    containerSub: {
+        marginTop: (height / 100) * 24,
     },
 
     txt: {
