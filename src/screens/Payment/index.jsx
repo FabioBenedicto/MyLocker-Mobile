@@ -50,7 +50,7 @@ export default function Payment({ route }) {
         <ScrollView>
             <View style={[gStyles.container, styles.container]}>
 
-                <View style={styles.header} />
+                <View style={[gStyles.header, { marginBottom: 40 }]} />
 
                 <View style={styles.main}>
 

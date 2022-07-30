@@ -15,11 +15,10 @@ const styles = StyleSheet.create({
         position: 'absolute',
         left: '5%',
         right: '5%',
-
     },
 
     flatlist: {
-        marginTop: 120,
+        marginTop: width / 3,
     },
 
     lockerImage: {
@@ -35,11 +34,14 @@ const styles = StyleSheet.create({
     },
 
     line: {
-        marginBottom: 30,
+        marginRight: 27,
+        marginBottom: 20,
+        height: 2,
+
     },
 
     flatlistL: {
-        marginTop: 120,
+        marginTop: width / 3,
     },
 
     lockerImageL: {
@@ -52,8 +54,20 @@ const styles = StyleSheet.create({
     },
 
     flatDataL: {
-        marginRight: 27,
         marginBottom: 20,
+    },
+
+    row: {
+        flex: 1,
+        justifyContent: 'space-evenly',
+    },
+
+    navLockers: {
+        position: 'absolute',
+        bottom: width / 10 - width / 3,
+        alignSelf: 'center',
+        justifyContent: 'space-evenly',
+        flexDirection: 'row',
     },
 
 });

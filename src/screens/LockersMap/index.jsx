@@ -1,10 +1,10 @@
 import React, { useState, useEffect, createRef } from 'react';
 import { Text, View, Image, TextInput, TouchableOpacity, Alert, FlatList, BackHandler } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import Button from '../../components/Button';
+import { setStatusBarHidden } from 'expo-status-bar';
+import { MaterialIcons } from '@expo/vector-icons';
 import gStyles from '../../components/gStyles';
 import styles from './styles';
-import Logo from '../../assets/Logo.png';
 import LockerContainerY from '../../assets/LockerContainerY.png';
 import LockerContainerR from '../../assets/LockerContainerR.png';
 import LockerContainerG from '../../assets/LockerContainerG.png';
@@ -48,12 +48,16 @@ export default function LockersMap({ route }) {
         });
     };
 
-    const [lockers, setLockers] = useState();
+    const [allLockers, setAllLockers] = useState(null);
+    const [lockers, setLockers] = useState(null);
+    const [navText, setNavText] = useState(['null', 'null']);
     const [visible, setVisible] = useState('flex');
     const [visible2, setVisible2] = useState('none');
+    const [page, setPage] = useState(1);
+    const [enable, setEnable] = useState(['#000000', '#000000']);
 
     const loadLockers = (passColor) => {
-        setLockers([
+        setAllLockers([
             { key: '1', available: true, color: passColor },
             { key: '2', available: true, color: passColor },
             { key: '3', available: true, color: passColor },
@@ -66,10 +70,28 @@ export default function LockersMap({ route }) {
             { key: '10', available: true, color: passColor },
             { key: '11', available: true, color: passColor },
             { key: '12', available: true, color: passColor },
+            { key: '13', available: true, color: passColor },
+            { key: '14', available: true, color: passColor },
+            { key: '15', available: true, color: passColor },
+            { key: '16', available: true, color: passColor },
+            { key: '17', available: true, color: passColor },
+            { key: '18', available: true, color: passColor },
+            { key: '19', available: true, color: passColor },
+            { key: '20', available: true, color: passColor },
+            { key: '21', available: true, color: passColor },
+            { key: '22', available: true, color: passColor },
+            { key: '23', available: true, color: passColor },
+            { key: '24', available: true, color: passColor },
+            { key: '25', available: true, color: passColor },
+            { key: '26', available: true, color: passColor },
+            { key: '27', available: true, color: passColor },
+            { key: '28', available: true, color: passColor },
+            { key: '29', available: true, color: passColor },
+            { key: '30', available: true, color: passColor },
+            { key: '31', available: true, color: passColor },
+            { key: '32', available: true, color: passColor },
+            { key: '33', available: true, color: passColor },
         ]);
-
-        setVisible('none');
-        setVisible2('flex');
     };
 
     const backAction = () => {
@@ -80,48 +102,158 @@ export default function LockersMap({ route }) {
         return true;
     };
 
+    const go = () => {
+        if (enable[1] != '#000000') {
+            return;
+        }
+        setPage(page + 1);
+        // console.log(page);
+        try {
+            const aux = [];
+
+            for (let index = 0; index < 16; index++) {
+                if (index + page * 16 < allLockers.length) {
+                    aux.push(allLockers[index + page * 16]);
+                }
+            }
+
+            // console.log(aux);
+            if (aux.length > 0) { setLockers(aux); }
+        } catch {
+            // console.log('nop');
+        }
+    };
+
+    const back = () => {
+        if (enable[0] != '#000000') {
+            return;
+        }
+        setPage(page - 1);
+        console.log(page);
+        try {
+            const aux = [];
+
+            for (let index = 0; index < 16; index++) {
+                if (index + page * 16 > 0) {
+                    aux.push(allLockers[index + page * 16]);
+                }
+            }
+
+            console.log(aux);
+            // if (aux.length > 0) { setLockers(aux); }
+        } catch {
+            // console.log('nop');
+        }
+    };
+
     useEffect(() => {
         BackHandler.addEventListener('hardwareBackPress', backAction);
 
         return () => BackHandler.removeEventListener('hardwareBackPress', backAction);
     }, []);
 
+    useEffect(() => {
+        if (allLockers != null) {
+            const aux = [];
+
+            for (let index = 0; index < 16; index++) {
+                aux.push(allLockers[index]);
+            }
+
+            setLockers(aux);
+        }
+    }, [allLockers]);
+
+    useEffect(() => {
+        try {
+            if (lockers != null) {
+                setNavText([lockers[0].key, lockers[lockers.length - 1].key]);
+                setVisible('none');
+                setVisible2('flex');
+
+                if (lockers[lockers.length - 1].key == allLockers.length) {
+                    enable[1] = '#B0B0B0';
+                } else {
+                    enable[1] = '#000000';
+                }
+
+                if (lockers[0].key == 1) {
+                    enable[0] = '#B0B0B0';
+                } else {
+                    enable[0] = '#000000';
+                }
+            }
+        } catch {
+            // console.log('nop');
+        }
+    }, [lockers]);
+
+    setStatusBarHidden(true);
+
     return (
-        <View style={[gStyles.container, styles.container]}>
-            <View style={styles.textContainer}>
-                <Text style={gStyles.title}>Alugue um Armário</Text>
-                <Text style={gStyles.subtitle}>Selecione o bloco de armários que você deseja.</Text>
-            </View>
+        <View style={{ flex: 1 }}>
+            <View style={gStyles.header} />
+            <View style={[gStyles.container, styles.container]}>
 
-            <FlatList
-                style={[styles.flatlistL, { display: visible }]}
-                data={mapLocker}
-                renderItem={({ item }) => {
-                    if (item.type == 'line') {
-                        return (<View style={[gStyles.line, styles.line]} />);
-                    }
+                <View style={styles.textContainer}>
+                    <Text style={gStyles.title}>Alugue um Armário</Text>
+                    <Text style={gStyles.subtitle}>Selecione o bloco de armários que você deseja.</Text>
+                </View>
 
-                    if (item.type) {
-                        return (<Text style={[gStyles.title, styles.flatData]}> {item.data} </Text>);
-                    }
+                <FlatList
+                    style={[styles.flatlistL, { display: visible }]}
+                    data={mapLocker}
+                    renderItem={({ item }) => {
+                        if (item.type == 'line') {
+                            return (<View style={[gStyles.line, styles.line]} />);
+                        }
 
-                    return (<TouchableOpacity onPress={item.pressFunc} style={styles.flatData}><Image source={item.data} style={styles.lockerImage} resizeMode="contain" /></TouchableOpacity>);
-                }}
-            />
+                        if (item.type) {
+                            return (<Text style={[gStyles.title, styles.flatData]}> {item.data} </Text>);
+                        }
 
-            <FlatList
-                style={[styles.flatlist, { display: visible2 }]}
-                data={lockers}
-                numColumns={4}
-                renderItem={({ item }) => (
-                    <View>
-                        <TouchableOpacity onPress={() => func(item.key)} style={styles.flatDataL}>
-                            <Image source={Locker} style={[styles.lockerImageL, { backgroundColor: item.color }]} resizeMode="contain" />
+                        return (<TouchableOpacity onPress={item.pressFunc} style={styles.flatDataL}><Image source={item.data} style={styles.lockerImage} resizeMode="contain" /></TouchableOpacity>);
+                    }}
+                />
+
+                <View style={{ display: visible2 }}>
+                    <FlatList
+                        style={styles.flatlist}
+                        data={lockers}
+                        columnWrapperStyle={styles.row}
+                        numColumns={4}
+                        renderItem={({ item }) => (
+                            <View>
+                                <TouchableOpacity onPress={() => func(item.key)} style={styles.flatData}>
+                                    <Image source={Locker} style={[styles.lockerImageL, { backgroundColor: item.color }]} resizeMode="contain" />
+                                </TouchableOpacity>
+                            </View>
+                        )}
+                    />
+                    <View style={styles.navLockers}>
+                        <TouchableOpacity onPress={() => back()}>
+                            <MaterialIcons
+                                name="keyboard-arrow-left"
+                                color={enable[0]}
+                                size={64}
+                            />
+                        </TouchableOpacity>
+
+                        <View style={{ justifyContent: 'center' }}><Text style={gStyles.title}>{navText[0]}</Text></View>
+                        <View style={{ justifyContent: 'center' }}><Text style={gStyles.title}> - </Text></View>
+                        <View style={{ justifyContent: 'center' }}><Text style={gStyles.title}>{navText[1]}</Text></View>
+
+                        <TouchableOpacity onPress={() => go()}>
+                            <MaterialIcons
+                                name="keyboard-arrow-right"
+                                color={enable[1]}
+                                size={64}
+                            />
                         </TouchableOpacity>
                     </View>
-                )}
-            />
+                </View>
 
+            </View>
         </View>
 
     );

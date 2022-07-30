@@ -11,8 +11,15 @@ const gStyles = StyleSheet.create({
         padding: '5%',
         flex: 1,
         flexDirection: 'column',
-    // justifyContent: 'space-between',
-    // alignItems: 'center',
+        // justifyContent: 'space-between',
+        // alignItems: 'center',
+    },
+
+    header: {
+        // flex: 1,
+        width: '100%',
+        height: 30,
+        backgroundColor: '#002147',
     },
 
     container2: {
@@ -22,7 +29,7 @@ const gStyles = StyleSheet.create({
     },
 
     imageContainer: {
-    // marginTop: 120,
+        // marginTop: 120,
         flex: 2,
         flexDirection: 'column',
         justifyContent: 'flex-end',
@@ -30,7 +37,7 @@ const gStyles = StyleSheet.create({
     },
 
     image: {
-    // marginTop: 120,
+        // marginTop: 120,
     },
 
     title: {
@@ -61,8 +68,8 @@ const gStyles = StyleSheet.create({
 
     inputContainer: {
         width: '100%',
-    // justifyContent: 'space-between',
-    // marginBottom: 10,
+        // justifyContent: 'space-between',
+        // marginBottom: 10,
     },
 
     input: {
