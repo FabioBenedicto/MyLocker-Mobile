@@ -13,7 +13,6 @@ export default function Login() {
     const cont = createRef();
 
     const [modV, setModV] = useState(false);
-    // const [alertV, setAlertV] = useState(false);
     const [email, setEmail] = useState('');
 
     const func = () => {
