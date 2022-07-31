@@ -1,5 +1,5 @@
-import React, { useState, useEffect, createRef } from 'react';
-import { Text, View, Image, TextInput, TouchableOpacity, Alert, FlatList, BackHandler } from 'react-native';
+import React, { useState, useEffect, createRef, useRef } from 'react';
+import { Text, View, Image, TextInput, TouchableOpacity, Alert, FlatList, BackHandler, Dimensions, Modal, Animated } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { setStatusBarHidden } from 'expo-status-bar';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -10,10 +10,13 @@ import LockerContainerR from '../../assets/LockerContainerR.png';
 import LockerContainerG from '../../assets/LockerContainerG.png';
 import LockerContainerB from '../../assets/LockerContainerB.png';
 import Locker from '../../assets/Locker.png';
+import Button from '../../components/Button';
+
 
 export default function LockersMap({ route }) {
     const navigation = useNavigation();
     const [email, setEmail] = useState(route.params.passEmail);
+    const { width, height } = Dimensions.get('window');
 
     const [mapLocker, setMapLocker] = useState([
         { key: '1', type: true, data: 'Sala 10' },
@@ -48,14 +51,21 @@ export default function LockersMap({ route }) {
         });
     };
 
+    const modal = (item) => {
+        setModV(true)
+    }
+
     const [allLockers, setAllLockers] = useState(null);
     const [lockers, setLockers] = useState(null);
     const [navText, setNavText] = useState(['null', 'null']);
     const [visible, setVisible] = useState('flex');
     const [visible2, setVisible2] = useState('none');
-    const [page, setPage] = useState(1);
+    const [page, setPage] = useState(0);
     const [enable, setEnable] = useState(['#000000', '#000000']);
-
+    const [modV, setModV] = useState([false])
+    const [modalL, setModalL] = useState({key: '0', available: 'true', color: '#B0B0B0'})
+    const anV = useRef(new Animated.ValueXY({ x: 0, y: height })).current;
+    const HOWMANY = 12
     const loadLockers = (passColor) => {
         setAllLockers([
             { key: '1', available: true, color: passColor },
@@ -106,45 +116,41 @@ export default function LockersMap({ route }) {
         if (enable[1] != '#000000') {
             return;
         }
-        setPage(page + 1);
-        // console.log(page);
-        try {
-            const aux = [];
-
-            for (let index = 0; index < 16; index++) {
-                if (index + page * 16 < allLockers.length) {
-                    aux.push(allLockers[index + page * 16]);
-                }
-            }
-
-            // console.log(aux);
-            if (aux.length > 0) { setLockers(aux); }
-        } catch {
-            // console.log('nop');
-        }
+        setLockers(null);
+        setPage(1+page);
+        console.log(page);
     };
 
     const back = () => {
         if (enable[0] != '#000000') {
             return;
         }
-        setPage(page - 1);
-        console.log(page);
+        setLockers(null);
+        setPage(page - 1)
+        console.log(page);        
+    };
+
+    useEffect(() => {
+        if(page < 0){
+            return
+        } 
         try {
             const aux = [];
 
-            for (let index = 0; index < 16; index++) {
-                if (index + page * 16 > 0) {
-                    aux.push(allLockers[index + page * 16]);
+            for (let index = 0; index < HOWMANY; index++) {
+                if (index + page * HOWMANY < allLockers.length && index + page * HOWMANY >= 0) {
+                    console.log(index)
+                    aux.push(allLockers[index + page * HOWMANY]);
                 }
             }
 
             console.log(aux);
-            // if (aux.length > 0) { setLockers(aux); }
+            if (aux.length > 0) { setLockers(aux); }
         } catch {
             // console.log('nop');
         }
-    };
+
+    }, [page])
 
     useEffect(() => {
         BackHandler.addEventListener('hardwareBackPress', backAction);
@@ -156,7 +162,7 @@ export default function LockersMap({ route }) {
         if (allLockers != null) {
             const aux = [];
 
-            for (let index = 0; index < 16; index++) {
+            for (let index = 0; index < HOWMANY; index++) {
                 aux.push(allLockers[index]);
             }
 
@@ -188,10 +194,82 @@ export default function LockersMap({ route }) {
         }
     }, [lockers]);
 
+    const anStart = () => {
+        Animated.timing(
+            anV,
+            {
+                toValue: { x: 0, y: height },
+                duration: 2,
+                useNativeDriver: false,
+            },
+        ).start();
+
+        setTimeout(() => {
+            setModV(true);
+
+            Animated.timing(
+                anV,
+                {
+                    toValue: { x: 0, y: height / 2 },
+                    duration: 300,
+                    useNativeDriver: false,
+                },
+            ).start();
+        }, 2);
+    };
+
     setStatusBarHidden(true);
 
     return (
         <View style={{ flex: 1 }}>
+
+        <Modal visible={modV} transparent animationType="none">
+
+            <TouchableOpacity style={gStyles.background} onPress={() => setModV(false)} />
+
+            <Animated.View style={[gStyles.contentContainer, anV.getLayout()]}>
+
+            <View>
+                        <View>
+                            <Text style={[gStyles.smallTitle, {textAlign:'center'}]}>Armário {modalL.key}</Text>
+                        </View>
+
+                    <View style={gStyles.lockerInfo}>
+
+                        <View style={[gStyles.lineInfo]}>
+                            <Text style={gStyles.smallSubtitle}>Andar:</Text>
+                            <Text style={[gStyles.smallSubtitle, { color: '#535353' }]}>Segundo</Text>
+                        </View>
+
+                        <View style={gStyles.lineInfo}>
+                            <Text style={gStyles.smallSubtitle}>Cor:</Text>
+                            <View style={styles.colorContent}>
+                                <Text style={[gStyles.smallSubtitle, { color: '#535353' }]}>sei la como faze a cor por ext</Text>
+                                <View style={[gStyles.color, {backgroundColor: modalL.color}]} />
+                            </View>
+                        </View>
+
+                        <View style={gStyles.lineInfo}>
+                            <Text style={gStyles.smallSubtitle}>À esquerda:</Text>
+                            <Text style={[gStyles.smallSubtitle, { color: '#535353' }]}>Saúde</Text>
+                        </View>
+
+                        <View style={gStyles.lineInfo}>
+                            <Text style={gStyles.smallSubtitle}>À direita:</Text>
+                            <Text style={[gStyles.smallSubtitle, { color: '#535353' }]}>Sala 13</Text>
+                        </View>
+
+                    </View>
+
+                </View>
+
+                <Button text="Alugar" press={() => func(modalL.key)} />
+
+            </Animated.View>
+
+        </Modal>
+
+
             <View style={gStyles.header} />
             <View style={[gStyles.container, styles.container]}>
 
@@ -224,7 +302,7 @@ export default function LockersMap({ route }) {
                         numColumns={4}
                         renderItem={({ item }) => (
                             <View>
-                                <TouchableOpacity onPress={() => func(item.key)} style={styles.flatData}>
+                                <TouchableOpacity onPress={() => {anStart(); setModalL(item)}} style={styles.flatData}>
                                     <Image source={Locker} style={[styles.lockerImageL, { backgroundColor: item.color }]} resizeMode="contain" />
                                 </TouchableOpacity>
                             </View>

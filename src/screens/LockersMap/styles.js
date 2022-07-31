@@ -17,6 +17,11 @@ const styles = StyleSheet.create({
         right: '5%',
     },
 
+    colorContent: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+
     flatlist: {
         marginTop: width / 3,
     },

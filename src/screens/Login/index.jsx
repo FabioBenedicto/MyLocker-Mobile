@@ -99,7 +99,7 @@ export default function Login() {
 
                 <TouchableOpacity style={gStyles.background} onPress={() => setModV(false)} />
 
-                <Animated.View style={[gStyles.contentContainer, anV.getLayout()]}>
+                <Animated.View style={[gStyles.contentContainer, anV.getLayout(), { alignContent: 'center' }]}>
 
                     <Text style={[gStyles.title, gStyles.modalTitle]}>E-mail Institucional</Text>
 

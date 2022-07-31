@@ -109,8 +109,9 @@ const gStyles = StyleSheet.create({
 
         justifyContent: 'space-between',
 
-        alignItems: 'center',
+        // alignItems: 'center',
         padding: 20,
+        // paddingHorizontal: 40,
 
         backgroundColor: 'white',
 
