@@ -98,13 +98,18 @@ const styles = StyleSheet.create({
         marginTop: (height / 100) * 2,
     },
 
-    lockerContainer: {
+    colorContent: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+
+    /* lockerContainer: {
         alignSelf: 'center',
         backgroundColor: '#F2F2F2',
         width: '100%',
         marginTop: 35,
         borderRadius: 10,
-    },
+    }, */
 
     text: {
         color: 'gray',
@@ -120,6 +125,28 @@ const styles = StyleSheet.create({
         width: (height / 100) * 32,
     /* height: 200,
     width: 230, */
+    },
+
+    lockerContainer: {
+        // flex: 1,
+        // justifyContent: 'center',
+        // alignItems: 'center',
+
+        marginTop: 20,
+        backgroundColor: '#F6F6F6',
+        borderRadius: 25,
+        padding: 30,
+        marginHorizontal: 30,
+    },
+
+    lockerContainer2: {
+        flexDirection: 'row',
+    },
+
+    lockerImageContainer: {
+        borderRadius: 5,
+        width: 45,
+        marginRight: 20,
     },
 
 });

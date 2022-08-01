@@ -131,10 +131,10 @@ export default function Login() {
                         </View>
                         <View style={[gStyles.line, { marginTop: 30 }]} />
                         <View style={[gStyles.lineInfo, { padding: 10, paddingRight: 45 }]}>
-                            <TouchableOpacity style={[gStyles.linkContainer, { alignSelf: 'flex-start' }]} onPress={() => anStart()}>
+                            <TouchableOpacity style={[gStyles.linkContainer, { alignSelf: 'flex-start' }]} onPress={() => setAlertV(false)}>
                                 <Text style={gStyles.linkText}>Cancelar</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity style={[gStyles.linkContainer, { alignSelf: 'flex-end' }]} onPress={() => anStart()}>
+                            <TouchableOpacity style={[gStyles.linkContainer, { alignSelf: 'flex-end' }]} onPress={() => BackHandler.exitApp()}>
                                 <Text style={gStyles.linkText}>Sim</Text>
                             </TouchableOpacity>
                         </View>

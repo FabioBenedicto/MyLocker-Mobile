@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Text, View, Image, ScrollView, BackHandler, Alert } from 'react-native';
+import { Text, View, Image, ScrollView, BackHandler, TouchableOpacity, Modal, Alert } from 'react-native';
 import { setStatusBarHidden } from 'expo-status-bar';
 import { useNavigation } from '@react-navigation/native';
 import gStyles from '../../components/gStyles';
@@ -12,6 +12,7 @@ export default function Payment({ route }) {
     const [email, setEmail] = useState(route.params.passEmail);
     const [locker, setLocker] = useState(route.params.locker);
     const [color, setColor] = useState('#D1D1D1');
+    const [alertV, setAlertV] = useState(false);
 
     useEffect(() => {
         setColor('#FF7B7B');
@@ -24,17 +25,7 @@ export default function Payment({ route }) {
     };
 
     const backAction = () => {
-        Alert.alert('Calma!', 'Caso volte, a compra será cancelada!\nTem certeza que deseja continuar?', [
-            {
-                text: 'Cancelar',
-                onPress: () => null,
-            },
-
-            { text: 'Sim',
-                onPress: () => navigation.navigate('Home', {
-                    passEmail: email,
-                }) },
-        ]);
+        setAlertV(true);
         return true;
     };
 
@@ -48,6 +39,37 @@ export default function Payment({ route }) {
 
     return (
         <ScrollView>
+
+            <Modal visible={alertV} transparent animationType="none">
+
+                <TouchableOpacity style={gStyles.background} onPress={() => setAlertV(false)} />
+
+                <View style={[gStyles.contentContainerAlert, { alignContent: 'center' }]}>
+
+                    <View>
+                        <Text style={[gStyles.smallTitle, { textAlign: 'center' }]}>Calma!</Text>
+                    </View>
+
+                    <View style={[gStyles.lockerInfo, { padding: 20 }]}>
+                        <View style={[{ flex: 1, alignSelf: 'center' }]}>
+                            <Text style={[gStyles.smallSubtitle, { textAlign: 'center' }]}>Caso volte, a compra será cancelada!</Text>
+                            <Text style={[gStyles.smallSubtitle, { textAlign: 'center' }]}>Tem certeza que deseja continuar?</Text>
+                        </View>
+                        <View style={[gStyles.line, { marginTop: 30 }]} />
+                        <View style={[gStyles.lineInfo, { padding: 10, paddingRight: 45 }]}>
+                            <TouchableOpacity style={[gStyles.linkContainer, { alignSelf: 'flex-start' }]} onPress={() => setAlertV(false)}>
+                                <Text style={gStyles.linkText}>Cancelar</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={[gStyles.linkContainer, { alignSelf: 'flex-end' }]} onPress={() => navigation.navigate('Home', { passEmail: email })}>
+                                <Text style={gStyles.linkText}>Sim</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+
+                </View>
+
+            </Modal>
+
             <View style={[gStyles.container, styles.container]}>
 
                 <View style={[gStyles.header, { marginBottom: 40 }]} />
