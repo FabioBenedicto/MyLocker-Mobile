@@ -125,6 +125,29 @@ const gStyles = StyleSheet.create({
         elevation: 50,
     },
 
+    contentContainerAlert: {
+        width: width - width / 10,
+
+        alignSelf: 'center',
+
+        justifyContent: 'space-between',
+
+        // alignItems: 'center',
+        padding: 20,
+        bottom: width / 2 + width / 6,
+        // paddingHorizontal: 40,
+
+        backgroundColor: 'white',
+
+        position: 'absolute',
+
+        borderRadius: 25,
+        // borderTopLeftRadius: 25,
+
+        shadowColor: '#000',
+        elevation: 50,
+    },
+
     modalTitle: {
         marginTop: 20,
     },

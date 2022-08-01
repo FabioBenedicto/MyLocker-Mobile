@@ -13,6 +13,7 @@ export default function Login() {
     const cont = createRef();
 
     const [modV, setModV] = useState(false);
+    const [alertV, setAlertV] = useState(false);
     const [email, setEmail] = useState('');
 
     const func = () => {
@@ -73,7 +74,8 @@ export default function Login() {
     };
 
     const backAction = () => {
-        Alert.alert('Calma!', 'Tem certeza que deseja sair do aplicativo?', [
+        setAlertV(true);
+        /* Alert.alert('Calma!', 'Tem certeza que deseja sair do aplicativo?', [
             {
                 text: 'Cancelar',
                 onPress: () => null,
@@ -81,7 +83,7 @@ export default function Login() {
 
             { text: 'Sim',
                 onPress: () => BackHandler.exitApp() },
-        ]);
+        ]); */
         return true;
     };
 
@@ -110,6 +112,35 @@ export default function Login() {
                     <Button text="Fechar" press={() => setModV(false)} />
 
                 </Animated.View>
+
+            </Modal>
+
+            <Modal visible={alertV} transparent animationType="none">
+
+                <TouchableOpacity style={gStyles.background} onPress={() => setAlertV(false)} />
+
+                <View style={[gStyles.contentContainerAlert, { alignContent: 'center' }]}>
+
+                    <View>
+                        <Text style={[gStyles.smallTitle, { textAlign: 'center' }]}>Calma!</Text>
+                    </View>
+
+                    <View style={[gStyles.lockerInfo, { padding: 20 }]}>
+                        <View style={[{ flex: 1, alignSelf: 'center' }]}>
+                            <Text style={gStyles.smallSubtitle}>Tem certeza que deseja sair?</Text>
+                        </View>
+                        <View style={[gStyles.line, { marginTop: 30 }]} />
+                        <View style={[gStyles.lineInfo, { padding: 10, paddingRight: 45 }]}>
+                            <TouchableOpacity style={[gStyles.linkContainer, { alignSelf: 'flex-start' }]} onPress={() => anStart()}>
+                                <Text style={gStyles.linkText}>Cancelar</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={[gStyles.linkContainer, { alignSelf: 'flex-end' }]} onPress={() => anStart()}>
+                                <Text style={gStyles.linkText}>Sim</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+
+                </View>
 
             </Modal>
 
