@@ -1,0 +1,46 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "standard-with-typescript",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "rules": {
+    "linebreak-style": [0, "error", "windows"],
+    "quotes": ["error", "single"],
+    "semi": ["error", "never"],
+    "trailingCommas": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "semi": false,
+        "singleQuote": true,
+        "arrowParens": "avoid",
+        "trailingCommas": "none",
+        "tabWidth": 2,
+        "jsxSingleQuote": true,
+        "endOfLine": "auto"
+      }
+    ],
+    "space-before-function-paren": "off",
+    "react/prop-types": "off",
+    "@typescript-eslint/no-non-null-assertion": "off"
+  }
+}
